@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Au Chalet Gourmand - Terre & Mer</title>
+    <style>
+        /* --- VARIABLES DE COULEURS --- */
+        :root {
+            --rouge-chalet: #c62828;
+            --ardoise: #2c3e50;
+            --blanc-creme: #fcfcfc;
+            --texte-clair: #ffffff;
+            --gris-doux: #666666;
+        }
+
+        /* --- STYLES DE BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanc-creme);
+            color: var(--ardoise);
+            line-height: 1.6;
+        }
+
+        /* --- EN-TÊTE (HEADER) --- */
+        header {
+            background-color: var(--blanc-creme);
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--ardoise);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Georgia', serif; /* Rappel du côté terroir */
+        }
+
+        .logo-toit {
+            color: var(--rouge-chalet);
+            font-size: 28px;
+            line-height: 0.5;
+            margin-bottom: 5px;
+        }
+
+        .logo-sous-titre {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--gris-doux);
+            text-transform: uppercase;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* --- SECTION HERO (ACCUEIL) --- */
+        .hero {
+            background-color: var(--ardoise);
+            color: var(--texte-clair);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #d1d8e0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--rouge-chalet);
+            color: var(--texte-clair);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(198, 40, 40, 0.3);
+            transition: transform 0.2s;
+        }
+
+        /* --- SECTIONS GÉNÉRALES --- */
+        .section-padding {
+            padding: 40px 20px;
+        }
+
+        .section-titre {
+            text-align: center;
+            font-size: 24px;
+            color: var(--rouge-chalet);
+            margin-bottom: 30px;
+            font-family: 'Georgia', serif;
+        }
+
+        /* --- GRILLE DE PRODUITS --- */
+        .grid-produits {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .carte-produit {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--rouge-chalet);
+        }
+
+        .carte-produit h3 {
+            color: var(--ardoise);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .carte-produit p {
+            font-size: 14px;
+            color: var(--gris-doux);
+        }
+
+        /* --- CONTACT & HORAIRES --- */
+        .contact-info {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 10px;
+            color: var(--ardoise);
+        }
+
+        .horaires-liste {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .horaires-liste li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* --- PIED DE PAGE --- */
+        footer {
+            background-color: var(--ardoise);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <span class="logo-toit">^</span>
+            Au Chalet Gourmand
+            <span class="logo-sous-titre">Terre & Mer</span>
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1>L'excellence du terroir Normand</h1>
+        <p>De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville.</p>
+        <a href="#contact" class="btn">Nous rendre visite</a>
+    </section>
+
+    <section class="section-padding" id="produits">
+        <h2 class="section-titre">Nos Rayons</h2>
+        <div class="grid-produits">
+            <div class="carte-produit">
+                <h3>🌊 La Marée & Traiteur</h3>
+                <p>Poissons côtiers, huîtres de Denneville, homard bleu, coquillages et plats préparés marins.</p>
+            </div>
+            <div class="carte-produit">
+                <h3>🥬 Le Primeur</h3>
+                <p>Fruits de saison et légumes frais cultivés sur nos terres à Surtainville.</p>
+            </div>
+            <div class="carte-produit">
+                <h3>🧀 Épicerie & Crèmerie</h3>
+                <p>Fromagerie, produits du terroir, vins et délices d'épicerie fine.</p>
+            </div>
+            <div class="carte-produit">
+                <h3>🧺 Compositions Sur-Mesure</h3>
+                <p>Plateaux de fruits de mer, corbeilles de fruits et paniers garnis personnalisés.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="contact" style="background-color: #f0f4f8;">
+        <h2 class="section-titre">Infos Pratiques</h2>
+        
+        <div class="contact-info">
+            <h4>📍 Adresse</h4>
+            <p style="font-size: 14px; color: var(--gris-doux); margin-bottom: 15px;">
+                23 Route du Pont Rose<br>
+                50270 Barneville-Carteret
+            </p>
+            
+            <h4>📞 Téléphone</h4>
+            <p style="font-size: 14px; margin-bottom: 5px;">
+                <a href="tel:0233046140" style="color: var(--rouge-chalet); text-decoration: none; font-weight: bold;">
+                    02 33 04 61 40
+                </a>
+            </p>
+        </div>
+
+        <div class="contact-info">
+            <h4>🕒 Horaires d'ouverture</h4>
+            <ul class="horaires-liste">
+                <li><span>Lundi</span> <span>08:00–12:30 | 14:30–19:30</span></li>
+                <li><span>Mardi</span> <span>08:30–12:30 | 14:30–19:30</span></li>
+                <li><span>Mercredi</span> <span>08:30–12:30 | 14:30–19:30</span></li>
+                <li><span>Jeudi</span> <span>08:30–12:30 | 14:30–19:30</span></li>
+                <li><span>Vendredi</span> <span>08:30–13:00 | 14:30–19:30</span></li>
+                <li><span>Samedi</span> <span>08:30–13:00 | 14:00–19:30</span></li>
+                <li><span>Dimanche</span> <span>08:30–13:00</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Au Chalet Gourmand. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
