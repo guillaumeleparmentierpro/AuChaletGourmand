@@ -21,6 +21,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth; /* Pour un défilement doux quand on clique sur le menu */
         }
 
         body {
@@ -37,13 +38,36 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .logo-img {
             max-height: 90px;
             width: auto;
             vertical-align: middle;
+        }
+
+        /* --- MENU DE NAVIGATION --- */
+        nav {
+            background-color: var(--gris-clair);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: var(--gris-anthracite);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--rouge-chalet);
         }
 
         /* --- SECTION HERO --- */
@@ -105,29 +129,55 @@
             color: var(--rouge-chalet);
         }
 
-        /* --- GRILLE DE PRODUITS --- */
+        /* --- À PROPOS --- */
+        .a-propos-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .a-propos-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- GRILLE DE PRODUITS (AVEC PHOTOS) --- */
         .grid-produits {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .carte-produit {
             background: white;
-            padding: 25px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-top: 5px solid var(--rouge-chalet);
             text-align: center;
+            overflow: hidden; /* Empêche la photo de déborder des coins arrondis */
         }
 
-        .carte-produit h3 {
+        .carte-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .carte-texte {
+            padding: 20px;
+        }
+
+        .carte-texte h3 {
             color: var(--gris-anthracite);
             margin-bottom: 10px;
             font-size: 20px;
         }
 
-        .carte-produit p {
+        .carte-texte p {
             font-size: 15px;
             color: var(--gris-doux);
         }
@@ -172,7 +222,7 @@
             border-bottom: none;
         }
 
-        /* --- BOUTONS D'ACTION (Tel, Mail, Maps) --- */
+        /* --- BOUTONS D'ACTION --- */
         .btn-contact {
             display: inline-block;
             background-color: var(--rouge-chalet);
@@ -242,7 +292,7 @@
         }
 
         .social-icons img {
-            width: 40px; /* Taille de tes icônes */
+            width: 40px;
             height: 40px;
         }
 
@@ -258,6 +308,9 @@
 
         /* --- ADAPTATION POUR ORDINATEUR (DESKTOP) --- */
         @media (min-width: 768px) {
+            nav {
+                gap: 40px; /* Plus d'espace entre les menus sur PC */
+            }
             .hero {
                 padding: 150px 40px;
             }
@@ -277,6 +330,9 @@
             .carte-produit {
                 width: calc(50% - 20px);
             }
+            .carte-img {
+                height: 250px; /* Photos un peu plus grandes sur PC */
+            }
             .contact-container {
                 flex-direction: row;
                 align-items: stretch;
@@ -293,43 +349,77 @@
 
     <!-- EN-TÊTE -->
     <header>
-        <a href="#">
-            <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
-        </a>
+        <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
     </header>
 
+    <!-- MENU DE NAVIGATION -->
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#a-propos">À Propos</a>
+        <a href="#produits">Nos Rayons</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <!-- ACCUEIL AVEC IMAGE DE FOND -->
-    <section class="hero">
+    <section class="hero" id="accueil">
         <h1>L'excellence du terroir<br>Normand</h1>
         <p>De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville-Carteret.</p>
         <a href="#contact" class="btn">Nous rendre visite</a>
     </section>
 
-    <!-- NOS PRODUITS -->
-    <section class="section-padding" id="produits">
+    <!-- SECTION À PROPOS -->
+    <section class="section-padding" id="a-propos">
+        <h2 class="section-titre">À <span>Propos</span></h2>
+        <div class="a-propos-container">
+            <img src="photo-boutique.jpg" alt="Intérieur de la boutique Au Chalet Gourmand" class="a-propos-img">
+            <p style="font-size: 16px; color: var(--gris-doux); line-height: 1.8;">
+                [Ici, nous insérerons le texte de présentation de la boutique. Son histoire, depuis quand elle existe, ses valeurs de proximité et l'amour des bons produits du terroir Normand et de la mer.]
+            </p>
+        </div>
+    </section>
+
+    <!-- NOS PRODUITS (AVEC PHOTOS) -->
+    <section class="section-padding" id="produits" style="background-color: #f9f9f9;">
         <h2 class="section-titre">Nos <span>Rayons</span></h2>
         <div class="grid-produits">
+            
             <div class="carte-produit">
-                <h3>🌊 La Marée & Traiteur</h3>
-                <p>Poissons côtiers, huîtres de Denneville, homard bleu, coquillages et plats préparés marins.</p>
+                <img src="photo-maree.jpg" alt="La Marée" class="carte-img">
+                <div class="carte-texte">
+                    <h3>La Marée & Traiteur</h3>
+                    <p>Poissons côtiers, huîtres de Denneville, homard bleu, coquillages et plats préparés marins.</p>
+                </div>
             </div>
+
             <div class="carte-produit">
-                <h3>🥬 Le Primeur</h3>
-                <p>Fruits de saison et légumes frais cultivés sur nos terres à Surtainville.</p>
+                <img src="photo-primeur.jpg" alt="Le Primeur" class="carte-img">
+                <div class="carte-texte">
+                    <h3>Le Primeur</h3>
+                    <p>Fruits de saison et légumes frais cultivés sur nos terres à Surtainville.</p>
+                </div>
             </div>
+
             <div class="carte-produit">
-                <h3>🧀 Épicerie & Crèmerie</h3>
-                <p>Fromagerie, produits du terroir, vins et délices d'épicerie fine.</p>
+                <img src="photo-fromagerie.jpg" alt="Épicerie et Crèmerie" class="carte-img">
+                <div class="carte-texte">
+                    <h3>Épicerie & Crèmerie</h3>
+                    <p>Fromagerie, produits du terroir, vins et délices d'épicerie fine.</p>
+                </div>
             </div>
+
             <div class="carte-produit">
-                <h3>🧺 Compositions Sur-Mesure</h3>
-                <p>Plateaux de fruits de mer, corbeilles de fruits et paniers garnis personnalisés.</p>
+                <img src="photo-compositions.jpg" alt="Compositions Sur-Mesure" class="carte-img">
+                <div class="carte-texte">
+                    <h3>Compositions Sur-Mesure</h3>
+                    <p>Plateaux de fruits de mer, corbeilles de fruits et paniers garnis personnalisés.</p>
+                </div>
             </div>
+
         </div>
     </section>
 
     <!-- CONTACT, HORAIRES & PAIEMENT -->
-    <section class="section-padding" id="contact" style="background-color: #f9f9f9;">
+    <section class="section-padding" id="contact">
         <h2 class="section-titre">Infos <span>Pratiques</span></h2>
         
         <div class="contact-container">
@@ -340,11 +430,11 @@
                     23 Route du Pont Rose<br>
                     50270 Barneville-Carteret
                 </p>
-                <a href="https://www.google.com/maps/search/?api=1&query=23+Route+du+Pont+Rose,+50270+Barneville-Carteret" target="_blank" class="btn-contact" style="margin-bottom: 25px;">📍 Ouvrir dans Google Maps</a>
+                <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" style="margin-bottom: 25px;">📍 Ouvrir dans Google Maps</a>
                 
                 <h4>📞 Nous contacter</h4>
                 <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
-                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact">✉️ chaletgourmand@orange.fr</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact" style="background-color: var(--gris-anthracite);">✉️ chaletgourmand@orange.fr</a>
             </div>
 
             <!-- Carte 2 : Horaires -->
