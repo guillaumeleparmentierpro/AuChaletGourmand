@@ -172,8 +172,10 @@
             border-bottom: none;
         }
 
-        .lien-tel, .lien-mail {
+        /* --- BOUTONS D'ACTION (Tel, Mail, Maps) --- */
+        .btn-contact {
             display: inline-block;
+            background-color: var(--rouge-chalet);
             color: white;
             padding: 10px 20px;
             border-radius: 20px;
@@ -183,14 +185,11 @@
             font-size: 14px;
             width: 100%;
             text-align: center;
+            transition: background-color 0.2s;
         }
 
-        .lien-tel {
-            background-color: var(--rouge-chalet);
-        }
-
-        .lien-mail {
-            background-color: var(--gris-anthracite);
+        .btn-contact:hover {
+            background-color: #c9161d;
         }
 
         /* --- PAIEMENTS --- */
@@ -227,23 +226,24 @@
             margin-bottom: 15px;
         }
 
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
         .social-icons a {
             display: inline-block;
-            margin: 0 10px;
-            color: var(--gris-anthracite);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            background-color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: transform 0.2s;
         }
 
         .social-icons a:hover {
             transform: translateY(-3px);
-            color: var(--rouge-chalet);
+        }
+
+        .social-icons img {
+            width: 40px; /* Taille de tes icônes */
+            height: 40px;
         }
 
         /* --- PIED DE PAGE --- */
@@ -284,7 +284,7 @@
             }
             .contact-info {
                 flex: 1;
-                min-width: 280px; /* Assure que les blocs ne s'écrasent pas */
+                min-width: 280px;
             }
         }
     </style>
@@ -336,14 +336,15 @@
             <!-- Carte 1 : Nous trouver et Nous contacter -->
             <div class="contact-info">
                 <h4>📍 Nous trouver</h4>
-                <p style="font-size: 15px; color: var(--gris-doux); margin-bottom: 25px;">
+                <p style="font-size: 15px; color: var(--gris-doux); margin-bottom: 10px;">
                     23 Route du Pont Rose<br>
                     50270 Barneville-Carteret
                 </p>
+                <a href="https://www.google.com/maps/search/?api=1&query=23+Route+du+Pont+Rose,+50270+Barneville-Carteret" target="_blank" class="btn-contact" style="margin-bottom: 25px;">📍 Ouvrir dans Google Maps</a>
                 
                 <h4>📞 Nous contacter</h4>
-                <a href="tel:0233046140" class="lien-tel">📞 02 33 04 61 40</a>
-                <a href="mailto:chaletgourmand@orange.fr" class="lien-mail">✉️ chaletgourmand@orange.fr</a>
+                <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact">✉️ chaletgourmand@orange.fr</a>
             </div>
 
             <!-- Carte 2 : Horaires -->
@@ -376,8 +377,12 @@
     <div class="social-banner">
         <p>Suivez-nous sur nos réseaux</p>
         <div class="social-icons">
-            <a href="#">📘 Facebook</a>
-            <a href="#">📍 Google Maps</a>
+            <a href="https://www.facebook.com/auchaletgourmand50/?locale=fr_FR" target="_blank" title="Facebook">
+                <img src="icon-facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank" title="Instagram">
+                <img src="icon-instagram.png" alt="Instagram">
+            </a>
         </div>
     </div>
 
