@@ -82,19 +82,19 @@
             text-align: center;
         }
 
-        .badge-247 {
-            display: inline-block;
+.badge-247 {
+            display: table; /* Permet d'utiliser les marges auto sur un élément en ligne */
+            margin: 0 auto 25px auto; /* Le "auto" à gauche et à droite centre l'élément horizontalement */
             background-color: var(--vert-ouvert);
             color: white;
-            padding: 6px 12px; /* Réduit pour être moins imposant */
+            padding: 6px 12px;
             border-radius: 20px;
             font-weight: bold;
-            font-size: 12px; /* Police plus petite */
-            margin-bottom: 25px;
+            font-size: 12px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             letter-spacing: 1px;
             text-decoration: none;
-            white-space: nowrap; /* Force le texte sur une seule ligne */
+            white-space: nowrap;
             transition: transform 0.2s, background-color 0.2s;
         }
 
