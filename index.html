@@ -192,6 +192,42 @@
             font-size: 13px;
             border-top: 4px solid var(--rouge-chalet);
         }
+
+        /* --- ADAPTATION POUR ORDINATEUR (DESKTOP) --- */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 150px 40px; /* Donne plus d'air au texte et au bouton */
+            }
+            
+            .hero h1 {
+                font-size: 48px; /* Titre beaucoup plus grand sur PC */
+            }
+            
+            .hero p {
+                font-size: 22px;
+                max-width: 800px; /* Empêche le texte de s'étirer sur tout l'écran */
+                margin: 0 auto 40px auto; /* Centre le texte proprement */
+            }
+
+            .grid-produits {
+                flex-direction: row; /* Passe les cartes en ligne */
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .carte-produit {
+                width: calc(50% - 20px); /* Fait 2 colonnes pour les produits */
+            }
+
+            .contact-container {
+                flex-direction: row; /* Met l'adresse et les horaires côte à côte */
+                align-items: stretch;
+            }
+
+            .contact-info {
+                flex: 1; /* Chaque bloc prend la moitié de l'espace */
+            }
+        }
     </style>
 </head>
 <body>
