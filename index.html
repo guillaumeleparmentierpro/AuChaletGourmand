@@ -83,18 +83,21 @@
         }
 
 .badge-247 {
-            display: table; /* Permet d'utiliser les marges auto sur un élément en ligne */
-            margin: 0 auto 25px auto; /* Le "auto" à gauche et à droite centre l'élément horizontalement */
+            display: block;
+            width: fit-content; /* S'adapte à la taille exacte du texte... */
+            max-width: 90%; /* ... mais ne dépasse jamais 90% de l'écran */
+            margin: 0 auto 25px auto; /* Centre parfaitement le bloc horizontalement */
             background-color: var(--vert-ouvert);
             color: white;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 12px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             letter-spacing: 1px;
             text-decoration: none;
-            white-space: nowrap;
+            white-space: normal; /* Autorise le texte à passer à la ligne si besoin */
+            text-align: center; /* Garde le texte centré s'il passe sur 2 lignes */
             transition: transform 0.2s, background-color 0.2s;
         }
 
