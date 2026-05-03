@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Au Chalet Gourmand - Terre & Mer</title>
     <style>
-        /* --- VARIABLES DE COULEURS (Inspirées du logo) --- */
+        /* --- VARIABLES DE COULEURS --- */
         :root {
-            --gris-anthracite: #2a2a2a; /* Le fond sombre du logo */
-            --rouge-chalet: #e61a22; /* Le rouge vif du toit */
-            --blanc-creme: #fcfcfc; /* Fond clair pour les textes */
+            --gris-anthracite: #2a2a2a;
+            --rouge-chalet: #e61a22;
+            --blanc-creme: #fcfcfc;
             --texte-sombre: #1a1a1a;
             --gris-doux: #666666;
+            --gris-clair: #e8e8e8;
         }
 
         /* --- STYLES DE BASE --- */
@@ -40,14 +41,13 @@
         }
 
         .logo-img {
-            max-height: 90px; /* Ajuste cette valeur si le logo est trop gros ou trop petit */
+            max-height: 90px;
             width: auto;
             vertical-align: middle;
         }
 
-        /* --- SECTION HERO (Bannière Imgfondtitre) --- */
+        /* --- SECTION HERO --- */
         .hero {
-            /* On superpose un filtre sombre sur l'image pour que le texte soit lisible */
             background: linear-gradient(rgba(42, 42, 42, 0.5), rgba(42, 42, 42, 0.7)), url('Imgfondtitre.jpg');
             background-size: cover;
             background-position: center;
@@ -172,15 +172,78 @@
             border-bottom: none;
         }
 
-        .lien-tel {
+        .lien-tel, .lien-mail {
             display: inline-block;
-            background-color: var(--rouge-chalet);
             color: white;
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 10px;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .lien-tel {
+            background-color: var(--rouge-chalet);
+        }
+
+        .lien-mail {
+            background-color: var(--gris-anthracite);
+        }
+
+        /* --- PAIEMENTS --- */
+        .paiement-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .badge-paiement {
+            background-color: var(--blanc-creme);
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--gris-doux);
+            font-weight: 500;
+        }
+
+        /* --- BANDEAU RÉSEAUX SOCIAUX --- */
+        .social-banner {
+            background-color: var(--gris-clair);
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .social-banner p {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gris-anthracite);
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: var(--gris-anthracite);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--rouge-chalet);
         }
 
         /* --- PIED DE PAGE --- */
@@ -196,54 +259,53 @@
         /* --- ADAPTATION POUR ORDINATEUR (DESKTOP) --- */
         @media (min-width: 768px) {
             .hero {
-                padding: 150px 40px; /* Donne plus d'air au texte et au bouton */
+                padding: 150px 40px;
             }
-            
             .hero h1 {
-                font-size: 48px; /* Titre beaucoup plus grand sur PC */
+                font-size: 48px;
             }
-            
             .hero p {
                 font-size: 22px;
-                max-width: 800px; /* Empêche le texte de s'étirer sur tout l'écran */
-                margin: 0 auto 40px auto; /* Centre le texte proprement */
+                max-width: 800px;
+                margin: 0 auto 40px auto;
             }
-
             .grid-produits {
-                flex-direction: row; /* Passe les cartes en ligne */
+                flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
             .carte-produit {
-                width: calc(50% - 20px); /* Fait 2 colonnes pour les produits */
+                width: calc(50% - 20px);
             }
-
             .contact-container {
-                flex-direction: row; /* Met l'adresse et les horaires côte à côte */
+                flex-direction: row;
                 align-items: stretch;
+                flex-wrap: wrap;
             }
-
             .contact-info {
-                flex: 1; /* Chaque bloc prend la moitié de l'espace */
+                flex: 1;
+                min-width: 280px; /* Assure que les blocs ne s'écrasent pas */
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- EN-TÊTE -->
     <header>
         <a href="#">
             <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
         </a>
     </header>
 
+    <!-- ACCUEIL AVEC IMAGE DE FOND -->
     <section class="hero">
         <h1>L'excellence du terroir<br>Normand</h1>
         <p>De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville-Carteret.</p>
         <a href="#contact" class="btn">Nous rendre visite</a>
     </section>
 
+    <!-- NOS PRODUITS -->
     <section class="section-padding" id="produits">
         <h2 class="section-titre">Nos <span>Rayons</span></h2>
         <div class="grid-produits">
@@ -266,23 +328,25 @@
         </div>
     </section>
 
+    <!-- CONTACT, HORAIRES & PAIEMENT -->
     <section class="section-padding" id="contact" style="background-color: #f9f9f9;">
         <h2 class="section-titre">Infos <span>Pratiques</span></h2>
         
         <div class="contact-container">
+            <!-- Carte 1 : Nous trouver et Nous contacter -->
             <div class="contact-info">
                 <h4>📍 Nous trouver</h4>
-                <p style="font-size: 15px; color: var(--gris-doux); margin-bottom: 15px;">
+                <p style="font-size: 15px; color: var(--gris-doux); margin-bottom: 25px;">
                     23 Route du Pont Rose<br>
                     50270 Barneville-Carteret
                 </p>
                 
                 <h4>📞 Nous contacter</h4>
-                <a href="tel:0233046140" class="lien-tel">
-                    02 33 04 61 40
-                </a>
+                <a href="tel:0233046140" class="lien-tel">📞 02 33 04 61 40</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="lien-mail">✉️ chaletgourmand@orange.fr</a>
             </div>
 
+            <!-- Carte 2 : Horaires -->
             <div class="contact-info">
                 <h4>🕒 Horaires d'ouverture</h4>
                 <ul class="horaires-liste">
@@ -295,11 +359,31 @@
                     <li><span>Dimanche</span> <span>08:30 – 13:00</span></li>
                 </ul>
             </div>
+
+            <!-- Carte 3 : Paiements -->
+            <div class="contact-info">
+                <h4>💳 Moyens de paiement</h4>
+                <div class="paiement-badges">
+                    <div class="badge-paiement">💳 Carte Bancaire</div>
+                    <div class="badge-paiement">💶 Espèces</div>
+                    <div class="badge-paiement">🎟️ Tickets Restaurant</div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- BANDEAU RÉSEAUX SOCIAUX -->
+    <div class="social-banner">
+        <p>Suivez-nous sur nos réseaux</p>
+        <div class="social-icons">
+            <a href="#">📘 Facebook</a>
+            <a href="#">📍 Google Maps</a>
+        </div>
+    </div>
+
+    <!-- PIED DE PAGE -->
     <footer>
-        <p>&copy; 2026 Au Chalet Gourmand. Tous droits réservés.</p>
+        <p>&copy; 2026 Au Chalet Gourmand. Tous droits réservés. <br><br> Création web : Cotentin Web Studio</p>
     </footer>
 
 </body>
