@@ -13,7 +13,7 @@
             --texte-sombre: #1a1a1a;
             --gris-doux: #666666;
             --gris-clair: #e8e8e8;
-            --vert-ouvert: #28a745; /* Vert pour le 24/7 */
+            --vert-ouvert: #28a745;
         }
 
         /* --- STYLES DE BASE --- */
@@ -77,7 +77,8 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 60px 20px;
+            /* L'espacement haut a été réduit ici (de 60px à 30px) */
+            padding: 30px 20px 60px;
             text-align: center;
         }
 
@@ -85,13 +86,21 @@
             display: inline-block;
             background-color: var(--vert-ouvert);
             color: white;
-            padding: 8px 16px;
+            padding: 6px 12px; /* Réduit pour être moins imposant */
             border-radius: 20px;
             font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 20px;
+            font-size: 12px; /* Police plus petite */
+            margin-bottom: 25px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             letter-spacing: 1px;
+            text-decoration: none;
+            white-space: nowrap; /* Force le texte sur une seule ligne */
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .badge-247:hover {
+            background-color: #218838;
+            transform: scale(1.05);
         }
 
         .hero h1 {
@@ -249,7 +258,7 @@
         }
 
         .note-247 {
-            margin-top: 15px;
+            margin-bottom: 15px; /* Déplacé vers le bas pour séparer du titre */
             padding: 10px;
             background-color: #f8fcf8;
             border-left: 4px solid var(--vert-ouvert);
@@ -345,7 +354,7 @@
         /* --- ADAPTATION POUR ORDINATEUR (DESKTOP) --- */
         @media (min-width: 768px) {
             nav { gap: 40px; }
-            .hero { padding: 120px 40px; }
+            .hero { padding: 60px 40px 120px; } /* Ajusté pour l'ordinateur aussi */
             .hero h1 { font-size: 48px; }
             .hero p { font-size: 22px; max-width: 800px; margin: 0 auto 40px auto; }
             .grid-produits { flex-direction: row; flex-wrap: wrap; justify-content: center; }
@@ -368,31 +377,32 @@
         <a href="#accueil">Accueil</a>
         <a href="#produits">Nos Rayons</a>
         <a href="#contact">Contact</a>
-        <!-- Ce lien pointera vers la nouvelle page que l'on créera plus tard -->
         <a href="a-propos.html">À Propos</a>
     </nav>
 
     <!-- ACCUEIL AVEC IMAGE DE FOND -->
     <section class="hero" id="accueil">
-        <div class="badge-247">🏪 Distributeur Libre-Service 24h/24 & 7j/7</div>
+        <!-- Le badge est maintenant un lien pointant vers l'ID #moyens-paiement -->
+        <a href="#moyens-paiement" class="badge-247">Distributeur Libre-Service 24h/24 & 7j/7</a>
+        
         <h1>L'excellence du terroir<br>Normand</h1>
         <p>De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville-Carteret.</p>
         
         <div class="hero-boutons">
             <a href="#contact" class="btn">Nous rendre visite</a>
-            <!-- Remplace le "#" ci-dessous par le vrai lien Google Drive du PDF -->
-            <a href="#" target="_blank" class="btn btn-secondaire">🍽️ Plat du jour & Menu (PDF)</a>
+            <!-- Le lien de ton Google Drive a été ajouté ici -->
+            <a href="https://drive.google.com/file/d/16LY0sAoTKCYqhMk0xUje33qNIZNCXc6K/view?usp=drive_link" target="_blank" class="btn btn-secondaire">🍽️ Plat du jour & Menu (PDF)</a>
         </div>
     </section>
 
-    <!-- NOS PRODUITS (AVEC PHOTOS ET LIENS) -->
+    <!-- NOS PRODUITS -->
     <section class="section-padding" id="produits" style="background-color: #f9f9f9;">
         <h2 class="section-titre">Nos <span>Rayons</span></h2>
         <div class="grid-produits">
             
             <a href="maree.html" class="lien-carte">
                 <div class="carte-produit">
-                    <img src="photo-maree.jpg" alt="La Marée" class="carte-img">
+                    <img src="photo-maree.png" alt="La Marée" class="carte-img">
                     <div class="carte-texte">
                         <h3>La Marée & Traiteur</h3>
                         <p>Poissons côtiers, huîtres de Denneville, homard bleu, coquillages et plats préparés marins.</p>
@@ -402,7 +412,7 @@
 
             <a href="primeur.html" class="lien-carte">
                 <div class="carte-produit">
-                    <img src="photo-primeur.jpg" alt="Le Primeur" class="carte-img">
+                    <img src="photo-primeur.png" alt="Le Primeur" class="carte-img">
                     <div class="carte-texte">
                         <h3>Le Primeur</h3>
                         <p>Fruits de saison et légumes frais cultivés sur nos terres à Surtainville.</p>
@@ -412,7 +422,7 @@
 
             <a href="epicerie.html" class="lien-carte">
                 <div class="carte-produit">
-                    <img src="photo-fromagerie.jpg" alt="Épicerie et Crèmerie" class="carte-img">
+                    <img src="photo-fromagerie.png" alt="Épicerie et Crèmerie" class="carte-img">
                     <div class="carte-texte">
                         <h3>Épicerie & Crèmerie</h3>
                         <p>Fromagerie, produits du terroir, vins et délices d'épicerie fine.</p>
@@ -422,7 +432,7 @@
 
             <a href="compositions.html" class="lien-carte">
                 <div class="carte-produit">
-                    <img src="photo-compositions.jpg" alt="Compositions Sur-Mesure" class="carte-img">
+                    <img src="photo-compositions.png" alt="Compositions Sur-Mesure" class="carte-img">
                     <div class="carte-texte">
                         <h3>Compositions Sur-Mesure</h3>
                         <p>Plateaux de fruits de mer, corbeilles de fruits et paniers garnis personnalisés.</p>
@@ -449,12 +459,16 @@
                 
                 <h4>📞 Nous contacter</h4>
                 <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
-                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact" style="background-color: var(--gris-anthracite);">✉️ chaletgourmand@orange.fr</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact">✉️ chaletgourmand@orange.fr</a>
             </div>
 
             <!-- Carte 2 : Horaires -->
             <div class="contact-info">
                 <h4>🕒 Horaires d'ouverture</h4>
+                <!-- La note est maintenant juste au-dessus des jours -->
+                <div class="note-247">
+                    💡 <strong>Bon à savoir :</strong> Notre distributeur automatique est accessible en libre-service 24h/24 et 7j/7 !
+                </div>
                 <ul class="horaires-liste">
                     <li><span>Lundi</span> <span>08:00 – 12:30 | 14:30 – 19:30</span></li>
                     <li><span>Mardi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
@@ -464,18 +478,15 @@
                     <li><span>Samedi</span> <span>08:30 – 13:00 | 14:00 – 19:30</span></li>
                     <li><span>Dimanche</span> <span>08:30 – 13:00</span></li>
                 </ul>
-                <div class="note-247">
-                    💡 <strong>Bon à savoir :</strong> Notre distributeur automatique est accessible en libre-service 24h/24 et 7j/7 !
-                </div>
             </div>
 
-            <!-- Carte 3 : Paiements -->
-            <div class="contact-info">
+            <!-- Carte 3 : Paiements (avec l'ID pour que le bouton vert puisse y descendre) -->
+            <div class="contact-info" id="moyens-paiement">
                 <h4>💳 Moyens de paiement</h4>
                 <div class="paiement-badges">
                     <div class="badge-paiement">💳 Carte Bancaire</div>
                     <div class="badge-paiement">💶 Espèces</div>
-                    <div class="badge-paiement">🎟️ Tickets Restaurant</div>
+                    <div class="badge-paiement">🎟️ Carte Tickets Restaurant</div>
                 </div>
             </div>
         </div>
