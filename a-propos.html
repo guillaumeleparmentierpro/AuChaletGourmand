@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Au Chalet Gourmand</title>
+    <style>
+        /* --- VARIABLES DE COULEURS --- */
+        :root {
+            --gris-anthracite: #2a2a2a;
+            --rouge-chalet: #e61a22;
+            --blanc-creme: #fcfcfc;
+            --texte-sombre: #1a1a1a;
+            --gris-doux: #666666;
+            --gris-clair: #e8e8e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanc-creme);
+            color: var(--texte-sombre);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--gris-anthracite);
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .logo-img {
+            max-height: 90px;
+            width: auto;
+        }
+
+        nav {
+            background-color: var(--gris-clair);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: var(--gris-anthracite);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENU --- */
+        .content-padding {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-titre {
+            text-align: center;
+            font-size: 28px;
+            color: var(--gris-anthracite);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .section-titre span {
+            color: var(--rouge-chalet);
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .story-text h2 {
+            color: var(--rouge-chalet);
+            margin: 25px 0 15px;
+            font-size: 22px;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+            color: var(--gris-doux);
+            text-align: justify;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--gris-anthracite);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 13px;
+            margin-top: 40px;
+            border-top: 4px solid var(--rouge-chalet);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
+    </header>
+
+    <nav>
+        <a href="index.html#accueil">Accueil</a>
+        <a href="index.html#produits">Nos Rayons</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="a-propos.html" style="color: var(--rouge-chalet);">À Propos</a>
+    </nav>
+
+    <main class="content-padding">
+        <h1 class="section-titre">Notre <span>Histoire</span></h1>
+        
+        <img src="photo-boutique.jpg" alt="La boutique" class="about-img">
+
+        <div class="story-text">
+            <p>Situé au cœur de Barneville-Carteret, <strong>Au Chalet Gourmand</strong> est né d'une passion profonde pour les richesses culinaires de notre belle Normandie.</p>
+            
+            <h2>L'Amour du Terroir</h2>
+            <p>Depuis notre création, notre mission est simple : offrir à nos clients le meilleur de la terre et de la mer. Nous croyons fermement à la qualité des produits locaux et au savoir-faire de nos producteurs partenaires, comme nos maraîchers de Surtainville ou nos pêcheurs du Cotentin.</p>
+            
+            <h2>Une Équipe à votre écoute</h2>
+            <p>Que vous soyez à la recherche d'un homard bleu d'exception, de légumes croquants fraîchement cueillis ou d'un plateau de fruits de mer sur-mesure pour vos événements, nous mettons tout en œuvre pour vous conseiller et accompagner vos talents culinaires.</p>
+
+            <p style="font-style: italic; text-align: center; margin-top: 30px;">"La gourmandise est un art, le terroir est notre inspiration."</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Au Chalet Gourmand. Tous droits réservés. <br><br> Création web : Cotentin Web Studio</p>
+    </footer>
+
+</body>
+</html>
