@@ -34,7 +34,7 @@
         /* --- EN-TÊTE (HEADER) --- */
         header {
             background-color: var(--gris-anthracite);
-            padding: 10px 20px;
+            padding: 15px 20px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -42,9 +42,14 @@
         }
 
         .logo-img {
-            max-height: 90px;
+            max-height: 130px; /* Logo agrandi selon ton souhait */
             width: auto;
             vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.02);
         }
 
         /* --- MENU DE NAVIGATION --- */
@@ -52,6 +57,7 @@
             background-color: var(--gris-clair);
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             gap: 15px;
             padding: 12px 20px;
@@ -71,22 +77,44 @@
             color: var(--rouge-chalet);
         }
 
+        /* --- DRAPEAUX LANGUES --- */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 20px;
+            border-left: 1px solid #ccc;
+            padding-left: 20px;
+        }
+
+        .flag {
+            width: 25px;
+            height: auto;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .flag:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
         /* --- SECTION HERO --- */
         .hero {
             background: linear-gradient(rgba(42, 42, 42, 0.5), rgba(42, 42, 42, 0.8)), url('Imgfondtitre.jpg');
             background-size: cover;
             background-position: center;
             color: white;
-            /* L'espacement haut a été réduit ici (de 60px à 30px) */
             padding: 30px 20px 60px;
             text-align: center;
         }
 
-.badge-247 {
+        .badge-247 {
             display: block;
-            width: fit-content; /* S'adapte à la taille exacte du texte... */
-            max-width: 90%; /* ... mais ne dépasse jamais 90% de l'écran */
-            margin: 0 auto 25px auto; /* Centre parfaitement le bloc horizontalement */
+            width: fit-content;
+            max-width: 90%;
+            margin: 0 auto 25px auto;
             background-color: var(--vert-ouvert);
             color: white;
             padding: 8px 16px;
@@ -96,14 +124,8 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             letter-spacing: 1px;
             text-decoration: none;
-            white-space: normal; /* Autorise le texte à passer à la ligne si besoin */
-            text-align: center; /* Garde le texte centré s'il passe sur 2 lignes */
+            text-align: center;
             transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .badge-247:hover {
-            background-color: #218838;
-            transform: scale(1.05);
         }
 
         .hero h1 {
@@ -149,11 +171,7 @@
             color: var(--gris-anthracite);
         }
 
-        .btn-secondaire:hover {
-            background-color: var(--gris-clair);
-        }
-
-        /* --- SECTIONS GÉNÉRALES --- */
+        /* --- SECTIONS --- */
         .section-padding {
             padding: 50px 20px;
         }
@@ -164,14 +182,13 @@
             color: var(--gris-anthracite);
             margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
         .section-titre span {
             color: var(--rouge-chalet);
         }
 
-        /* --- GRILLE DE PRODUITS (LIENS CLIQUABLES) --- */
+        /* --- GRILLE PRODUITS --- */
         .grid-produits {
             display: flex;
             flex-direction: column;
@@ -191,12 +208,7 @@
             border-top: 5px solid var(--rouge-chalet);
             text-align: center;
             overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .lien-carte:hover .carte-produit {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
         }
 
         .carte-img {
@@ -209,18 +221,7 @@
             padding: 20px;
         }
 
-        .carte-texte h3 {
-            color: var(--gris-anthracite);
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .carte-texte p {
-            font-size: 15px;
-            color: var(--gris-doux);
-        }
-
-        /* --- CONTACT & HORAIRES --- */
+        /* --- CONTACT --- */
         .contact-container {
             display: flex;
             flex-direction: column;
@@ -235,42 +236,22 @@
             border-left: 5px solid var(--gris-anthracite);
         }
 
-        .contact-info h4 {
-            margin-bottom: 15px;
-            color: var(--gris-anthracite);
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .horaires-liste {
-            list-style: none;
-            font-size: 15px;
-        }
-
         .horaires-liste li {
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
             border-bottom: 1px solid #f0f0f0;
         }
-        
-        .horaires-liste li:last-child {
-            border-bottom: none;
-        }
 
         .note-247 {
-            margin-bottom: 15px; /* Déplacé vers le bas pour séparer du titre */
+            margin-bottom: 15px;
             padding: 10px;
             background-color: #f8fcf8;
             border-left: 4px solid var(--vert-ouvert);
             font-size: 14px;
-            color: var(--gris-doux);
             border-radius: 4px;
         }
 
-        /* --- BOUTONS D'ACTION --- */
         .btn-contact {
             display: inline-block;
             background-color: var(--rouge-chalet);
@@ -280,63 +261,22 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 10px;
-            font-size: 14px;
             width: 100%;
             text-align: center;
-            transition: background-color 0.2s;
         }
 
-        .btn-contact:hover {
-            background-color: #c9161d;
-        }
-
-        /* --- PAIEMENTS --- */
-        .paiement-badges {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .badge-paiement {
-            background-color: var(--blanc-creme);
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            color: var(--gris-doux);
-            font-weight: 500;
-        }
-
-        /* --- BANDEAU RÉSEAUX SOCIAUX --- */
+        /* --- SOCIAL & FOOTER --- */
         .social-banner {
             background-color: var(--gris-clair);
             padding: 25px 20px;
             text-align: center;
         }
 
-        .social-banner p {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--gris-anthracite);
-            margin-bottom: 15px;
-        }
-
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 20px;
-        }
-
-        .social-icons a {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .social-icons a:hover {
-            transform: translateY(-3px);
+            margin-top: 15px;
         }
 
         .social-icons img {
@@ -344,7 +284,6 @@
             height: 40px;
         }
 
-        /* --- PIED DE PAGE --- */
         footer {
             background-color: var(--gris-anthracite);
             color: white;
@@ -354,163 +293,139 @@
             border-top: 4px solid var(--rouge-chalet);
         }
 
-        /* --- ADAPTATION POUR ORDINATEUR (DESKTOP) --- */
+        /* --- DESKTOP --- */
         @media (min-width: 768px) {
-            nav { gap: 40px; }
-            .hero { padding: 60px 40px 120px; } /* Ajusté pour l'ordinateur aussi */
+            nav { gap: 30px; }
+            .hero { padding: 60px 40px 120px; }
             .hero h1 { font-size: 48px; }
-            .hero p { font-size: 22px; max-width: 800px; margin: 0 auto 40px auto; }
             .grid-produits { flex-direction: row; flex-wrap: wrap; justify-content: center; }
             .lien-carte { width: calc(50% - 20px); }
-            .carte-img { height: 250px; }
-            .contact-container { flex-direction: row; align-items: stretch; flex-wrap: wrap; }
-            .contact-info { flex: 1; min-width: 280px; }
+            .contact-container { flex-direction: row; }
+            .contact-info { flex: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- EN-TÊTE -->
     <header>
         <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
     </header>
 
-    <!-- MENU DE NAVIGATION -->
     <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#produits">Nos Rayons</a>
-        <a href="#contact">Contact</a>
-        <a href="a-propos.html">À Propos</a>
+        <a href="#accueil" data-i18n="nav-home">Accueil</a>
+        <a href="#produits" data-i18n="nav-products">Nos Rayons</a>
+        <a href="#contact" data-i18n="nav-contact">Contact</a>
+        <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
+        
+        <div class="lang-switcher">
+            <img src="flag-fr.png" alt="FR" class="flag" onclick="setLanguage('fr')">
+            <img src="flag-en.png" alt="EN" class="flag" onclick="setLanguage('en')">
+        </div>
     </nav>
 
-    <!-- ACCUEIL AVEC IMAGE DE FOND -->
     <section class="hero" id="accueil">
-        <!-- Le badge est maintenant un lien pointant vers l'ID #moyens-paiement -->
-        <a href="#moyens-paiement" class="badge-247">Équipé d'un Distributeur Libre-Service 24h/24 & 7j/7</a>
-        
-        <h1>L'excellence du terroir<br>Normand</h1>
-        <p>De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville-Carteret.</p>
+        <a href="#moyens-paiement" class="badge-247" data-i18n="hero-badge">Équipé d'un Distributeur Libre-Service 24h/24 & 7j/7</a>
+        <h1 data-i18n="hero-title">L'excellence du terroir<br>Normand</h1>
+        <p data-i18n="hero-subtitle">De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville-Carteret.</p>
         
         <div class="hero-boutons">
-            <a href="#contact" class="btn">Nous rendre visite</a>
-            <a href="AuChaletGourmand.pdf" target="_blank" class="btn btn-secondaire">🍽️ Plat du jour & Menu (PDF)</a>
+            <a href="#contact" class="btn" data-i18n="btn-visit">Nous rendre visite</a>
+            <a href="AuChaletGourmand.pdf" target="_blank" class="btn btn-secondaire" data-i18n="btn-menu">🍽️ Plat du jour & Menu (PDF)</a>
         </div>
     </section>
 
-    <!-- NOS PRODUITS -->
     <section class="section-padding" id="produits" style="background-color: #f9f9f9;">
-        <h2 class="section-titre">Nos <span>Rayons</span></h2>
+        <h2 class="section-titre"><span data-i18n="title-our">Nos</span> <span data-i18n="title-sections">Rayons</span></h2>
         <div class="grid-produits">
-            
             <a href="maree.html" class="lien-carte">
                 <div class="carte-produit">
                     <img src="photo-maree.png" alt="La Marée" class="carte-img">
                     <div class="carte-texte">
-                        <h3>La Marée & Traiteur</h3>
-                        <p>Poissons côtiers, huîtres de Denneville, homard bleu, coquillages et plats préparés marins.</p>
+                        <h3 data-i18n="cat-maree">La Marée & Traiteur</h3>
+                        <p data-i18n="desc-maree">Poissons côtiers, huîtres de Denneville, homard bleu, coquillages et plats préparés marins.</p>
                     </div>
                 </div>
             </a>
-
             <a href="primeur.html" class="lien-carte">
                 <div class="carte-produit">
                     <img src="photo-primeur.png" alt="Le Primeur" class="carte-img">
                     <div class="carte-texte">
-                        <h3>Le Primeur</h3>
-                        <p>Fruits de saison et légumes frais cultivés sur nos terres à Surtainville.</p>
+                        <h3 data-i18n="cat-primeur">Le Primeur</h3>
+                        <p data-i18n="desc-primeur">Fruits de saison et légumes frais cultivés sur nos terres à Surtainville.</p>
                     </div>
                 </div>
             </a>
-
             <a href="epicerie.html" class="lien-carte">
                 <div class="carte-produit">
                     <img src="photo-fromagerie.png" alt="Épicerie et Crèmerie" class="carte-img">
                     <div class="carte-texte">
-                        <h3>Épicerie & Crèmerie</h3>
-                        <p>Fromagerie, produits du terroir, vins et délices d'épicerie fine.</p>
+                        <h3 data-i18n="cat-epicerie">Épicerie & Crèmerie</h3>
+                        <p data-i18n="desc-epicerie">Fromagerie, produits du terroir, vins et délices d'épicerie fine.</p>
                     </div>
                 </div>
             </a>
-
             <a href="compositions.html" class="lien-carte">
                 <div class="carte-produit">
                     <img src="photo-compositions.png" alt="Compositions Sur-Mesure" class="carte-img">
                     <div class="carte-texte">
-                        <h3>Compositions Sur-Mesure</h3>
-                        <p>Plateaux de fruits de mer, corbeilles de fruits et paniers garnis personnalisés.</p>
+                        <h3 data-i18n="cat-compo">Compositions Sur-Mesure</h3>
+                        <p data-i18n="desc-compo">Plateaux de fruits de mer, corbeilles de fruits et paniers garnis personnalisés.</p>
                     </div>
                 </div>
             </a>
-
         </div>
     </section>
 
-    <!-- CONTACT, HORAIRES & PAIEMENT -->
     <section class="section-padding" id="contact">
-        <h2 class="section-titre">Infos <span>Pratiques</span></h2>
-        
+        <h2 class="section-titre"><span data-i18n="title-info">Infos</span> <span data-i18n="title-practical">Pratiques</span></h2>
         <div class="contact-container">
-            <!-- Carte 1 : Nous trouver et Nous contacter -->
             <div class="contact-info">
-                <h4>📍 Nous trouver</h4>
-                <p style="font-size: 15px; color: var(--gris-doux); margin-bottom: 10px;">
-                    23 Route du Pont Rose<br>
-                    50270 Barneville-Carteret
-                </p>
-                <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" style="margin-bottom: 25px;">📍 Ouvrir dans Google Maps</a>
-                
-                <h4>📞 Nous contacter</h4>
+                <h4 data-i18n="info-find">📍 Nous trouver</h4>
+                <p>23 Route du Pont Rose<br>50270 Barneville-Carteret</p>
+                <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps">📍 Ouvrir dans Google Maps</a>
+                <h4 data-i18n="info-contact" style="margin-top:20px;">📞 Nous contacter</h4>
                 <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
-                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact">✉️ chaletgourmand@orange.fr</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact" style="background-color: var(--gris-anthracite);">✉️ chaletgourmand@orange.fr</a>
             </div>
-
-            <!-- Carte 2 : Horaires -->
             <div class="contact-info">
-                <h4>🕒 Horaires d'ouverture</h4>
-                <!-- La note est maintenant juste au-dessus des jours -->
+                <h4 data-i18n="info-hours">🕒 Horaires d'ouverture</h4>
                 <div class="note-247">
-                    💡 <strong>Bon à savoir :</strong> Notre distributeur automatique est accessible en libre-service 24h/24 et 7j/7 !
+                    💡 <strong data-i18n="hours-note-title">Bon à savoir :</strong> <span data-i18n="hours-note-text">Notre distributeur automatique est accessible en libre-service 24h/24 et 7j/7 !</span>
                 </div>
                 <ul class="horaires-liste">
-                    <li><span>Lundi</span> <span>08:00 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span>Mardi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span>Mercredi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span>Jeudi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span>Vendredi</span> <span>08:30 – 13:00 | 14:30 – 19:30</span></li>
-                    <li><span>Samedi</span> <span>08:30 – 13:00 | 14:00 – 19:30</span></li>
-                    <li><span>Dimanche</span> <span>08:30 – 13:00</span></li>
+                    <li><span data-i18n="day-1">Lundi</span> <span>08:00 – 12:30 | 14:30 – 19:30</span></li>
+                    <li><span data-i18n="day-2">Mardi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
+                    <li><span data-i18n="day-3">Mercredi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
+                    <li><span data-i18n="day-4">Jeudi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
+                    <li><span data-i18n="day-5">Vendredi</span> <span>08:30 – 13:00 | 14:30 – 19:30</span></li>
+                    <li><span data-i18n="day-6">Samedi</span> <span>08:30 – 13:00 | 14:00 – 19:30</span></li>
+                    <li><span data-i18n="day-7">Dimanche</span> <span>08:30 – 13:00</span></li>
                 </ul>
             </div>
-
-            <!-- Carte 3 : Paiements (avec l'ID pour que le bouton vert puisse y descendre) -->
             <div class="contact-info" id="moyens-paiement">
-                <h4>💳 Moyens de paiement</h4>
+                <h4 data-i18n="info-pay">💳 Moyens de paiement</h4>
                 <div class="paiement-badges">
-                    <div class="badge-paiement">💳 Carte Bancaire</div>
-                    <div class="badge-paiement">💶 Espèces</div>
-                    <div class="badge-paiement">🎟️ Carte Tickets Restaurant</div>
+                    <div class="badge-paiement">💳 <span data-i18n="pay-card">Carte Bancaire</span></div>
+                    <div class="badge-paiement">💶 <span data-i18n="pay-cash">Espèces</span></div>
+                    <div class="badge-paiement">🎟️ <span data-i18n="pay-ticket">Carte Tickets Restaurant</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BANDEAU RÉSEAUX SOCIAUX -->
     <div class="social-banner">
-        <p>Suivez-nous sur nos réseaux</p>
+        <p data-i18n="social-follow">Suivez-nous sur nos réseaux</p>
         <div class="social-icons">
-            <a href="https://www.facebook.com/auchaletgourmand50/?locale=fr_FR" target="_blank" title="Facebook">
-                <img src="icon-facebook.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank" title="Instagram">
-                <img src="icon-instagram.png" alt="Instagram">
-            </a>
+            <a href="https://www.facebook.com/auchaletgourmand50/" target="_blank"><img src="icon-facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank"><img src="icon-instagram.png" alt="Instagram"></a>
         </div>
     </div>
 
-    <!-- PIED DE PAGE -->
     <footer>
-        <p>&copy; 2026 Au Chalet Gourmand. Tous droits réservés. <br><br> Création web : Cotentin Web Studio</p>
+        <p>&copy; 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> Cotentin Web Studio</p>
     </footer>
 
+    <!-- Script de traduction -->
+    <script src="lang.js"></script>
 </body>
 </html>
