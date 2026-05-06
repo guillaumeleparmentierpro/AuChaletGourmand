@@ -84,27 +84,40 @@
         }
 
         /* --- DRAPEAUX LANGUES --- */
-        .lang-switcher {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: 20px;
-            border-left: 1px solid #ccc;
-            padding-left: 20px;
-        }
+/* --- SÉLECTEUR DE LANGUE (EMOJIS) --- */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    user-select: none; /* Évite de sélectionner l'emoji par erreur au clic */
+}
 
-        .flag {
-            width: 25px;
-            height: auto;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s, transform 0.2s;
-        }
+.emoji-flag {
+    font-size: 22px; /* Taille de l'emoji */
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    line-height: 1;
+}
 
-        .flag:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
+.emoji-flag:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin-left: 0;
+        margin-top: 10px;
+        border-left: none;
+        padding-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
 
         /* --- SECTION HERO --- */
         .hero {
@@ -324,10 +337,10 @@
         <a href="#contact" data-i18n="nav-contact">Contact</a>
         <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
         
-        <div class="lang-switcher">
-            <img src="flag-fr.png" alt="FR" class="flag" onclick="setLanguage('fr')">
-            <img src="flag-en.png" alt="EN" class="flag" onclick="setLanguage('en')">
-        </div>
+<div class="lang-switcher">
+    <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+    <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+</div>
     </nav>
 
     <section class="hero" id="accueil">
