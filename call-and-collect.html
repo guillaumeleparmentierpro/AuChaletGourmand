@@ -1,1 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Réservation & Call & Collect - Au Chalet Gourmand</title>
+    <style>
+        /* --- VARIABLES DE COULEURS --- */
+        :root {
+            --gris-anthracite: #2a2a2a;
+            --rouge-chalet: #e61a22;
+            --blanc-creme: #fcfcfc;
+            --texte-sombre: #1a1a1a;
+            --gris-doux: #666666;
+            --gris-clair: #e8e8e8;
+            --vert-ouvert: #28a745;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--blanc-creme);
+            color: var(--texte-sombre);
+            line-height: 1.6;
+        }
+
+        /* --- EN-TÊTE ET MENU (IDENTIQUES À L'ACCUEIL) --- */
+        header {
+            background-color: var(--gris-anthracite);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logo-img {
+            max-height: 130px;
+            width: auto;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.03);
+        }
+
+        .header-lang-switcher {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            user-select: none;
+        }
+
+        .emoji-flag {
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s;
+            line-height: 1;
+            color: white; 
+            font-weight: bold;
+        }
+
+        .emoji-flag:hover {
+            transform: scale(1.2);
+            color: var(--rouge-chalet);
+        }
+
+        nav {
+            background-color: var(--gris-clair);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: var(--gris-anthracite);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--rouge-chalet);
+        }
+
+        /* Lien actif dans le menu */
+        nav a.active {
+            color: var(--rouge-chalet);
+            border-bottom: 2px solid var(--rouge-chalet);
+            padding-bottom: 3px;
+        }
+
+        /* --- CONTENU DE LA PAGE --- */
+        .page-header {
+            background-color: var(--gris-anthracite);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            color: var(--vert-ouvert);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .content-padding {
+            padding: 0 20px 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-titre {
+            text-align: center;
+            font-size: 26px;
+            color: var(--gris-anthracite);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .section-titre span {
+            color: var(--rouge-chalet);
+        }
+
+        /* --- COMMENT ÇA MARCHE (ÉTAPES HYBRIDES) --- */
+        .etapes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .etape-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            flex: 1;
+            border-top: 4px solid var(--vert-ouvert);
+        }
+
+        .etape-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .etape-box h3 {
+            color: var(--gris-anthracite);
+            margin-bottom: 10px;
+        }
+
+        .etape-box p {
+            color: var(--gris-doux);
+            font-size: 14px;
+        }
+
+        /* --- CARTES DES PACKS --- */
+        .packs-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pack-carte {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pack-img {
+            background-color: var(--gris-clair);
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+        }
+
+        .pack-info {
+            padding: 25px;
+        }
+
+        .pack-info h3 {
+            color: var(--rouge-chalet);
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .pack-info p {
+            color: var(--gris-doux);
+            margin-bottom: 15px;
+        }
+
+        .pack-liste {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .pack-liste li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+            color: var(--gris-anthracite);
+            font-size: 14px;
+        }
+
+        .pack-liste li::before {
+            content: "✓ ";
+            color: var(--vert-ouvert);
+            font-weight: bold;
+        }
+
+        /* --- APPEL À L'ACTION --- */
+        .cta-commande {
+            background-color: var(--gris-clair);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border-left: 5px solid var(--rouge-chalet);
+        }
+
+        .btn-call {
+            display: inline-block;
+            background-color: var(--rouge-chalet);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn-call:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--gris-anthracite);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 13px;
+            border-top: 4px solid var(--rouge-chalet);
+        }
+
+        /* --- DESKTOP --- */
+        @media (min-width: 768px) {
+            .etapes-container { flex-direction: row; }
+            .packs-grid { flex-direction: row; }
+            .pack-carte { flex: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
+        </a>
+        <div class="header-lang-switcher">
+            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html#produits" data-i18n="nav-products">Nos Rayons</a>
+        <a href="call-and-collect.html" class="active" data-i18n="nav-click">Call & Collect</a>
+        <a href="AuChaletGourmand.pdf" target="_blank" data-i18n="nav-menu">Menu du Jour</a>
+        <a href="index.html#contact" data-i18n="nav-contact">Contact</a>
+        <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
+    </nav>
+
+    <div class="page-header">
+        <h1 data-i18n="cc-title">Call & Collect</h1>
+        <p data-i18n="cc-subtitle">Sécurisez vos commandes fraîches et retirez-les 24h/24 !</p>
+    </div>
+
+    <main class="content-padding">
+
+        <h2 class="section-titre"><span data-i18n="cc-how">Comment</span> <span>ça marche ?</span></h2>
+        
+        <div class="etapes-container">
+            <div class="etape-box">
+                <div class="etape-icon">📱</div>
+                <h3 data-i18n="step-1-title">1. Je choisis</h3>
+                <p data-i18n="step-1-desc">Sélectionnez un de nos packs exclusifs détaillés ci-dessous.</p>
+            </div>
+            <div class="etape-box">
+                <div class="etape-icon">☎︎</div>
+                <h3 data-i18n="step-2-title">2. Je réserve & je paie</h3>
+                <p data-i18n="step-2-desc">Appelez-nous pour vérifier nos stocks du jour. Une fois validé, vous recevrez un lien de paiement sécurisé par SMS pour bloquer votre réservation.</p>
+            </div>
+            <div class="etape-box">
+                <div class="etape-icon">🧊</div>
+                <h3 data-i18n="step-3-title">3. Je retire 24/7</h3>
+                <p data-i18n="step-3-desc">Récupérez votre commande fraîchement préparée dans votre casier réservé au distributeur automatique, à l'heure qui vous convient !</p>
+            </div>
+        </div>
+
+        <h2 class="section-titre"><span data-i18n="cc-packs-our">Nos Packs</span> <span data-i18n="cc-packs-exclusive">Exclusifs</span></h2>
+
+        <div class="packs-grid">
+            <div class="pack-carte">
+                <div class="pack-img">🌅</div>
+                <div class="pack-info">
+                    <h3 data-i18n="pack-apero-title">Pack "Apéro Plage" - 35 €</h3>
+                    <p data-i18n="pack-apero-desc">La sélection parfaite pour un coucher de soleil sur la plage de Carteret.</p>
+                    <ul class="pack-liste">
+                        <li data-i18n="pack-apero-1">Bulots cuits du jour & Mayonnaise maison</li>
+                        <li data-i18n="pack-apero-2">Rillettes de la mer artisanales</li>
+                        <li data-i18n="pack-apero-3">Bouteille de vin blanc frais (au choix)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pack-carte">
+                <div class="pack-img">🏡</div>
+                <div class="pack-info">
+                    <h3 data-i18n="pack-gite-title">Pack "Arrivée au Gîte" - 45 €</h3>
+                    <p data-i18n="pack-gite-desc">Vous arrivez tard ? Récupérez votre dîner dans le distributeur et profitez de votre première soirée.</p>
+                    <ul class="pack-liste">
+                        <li data-i18n="pack-gite-1">Soupe de poisson artisanale & croûtons</li>
+                        <li data-i18n="pack-gite-2">Sélection de fromages normands & Beurre</li>
+                        <li data-i18n="pack-gite-3">Bouteille de Cidre bouché de la région</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-commande">
+            <h2 data-i18n="cta-title">Pour vérifier les disponibilités du jour</h2>
+            <p data-i18n="cta-desc">Appelez-nous directement ! Nous vous conseillerons sur les meilleurs arrivages pour vos plateaux.</p>
+            <a href="tel:0233046140" class="btn-call"><span style="vertical-align: middle;">☎︎</span> <span data-i18n="cta-btn">Réserver au 02 33 04 61 40</span></a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> <a href="https://cotentinwebstudio.fr/index.html" target="_blank" style="color: var(--rouge-chalet); text-decoration: none; font-weight: bold;">Cotentin Web Studio</a></p>
+    </footer>
+
+    <script src="lang.js"></script>
+</body>
+</html>
