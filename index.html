@@ -82,19 +82,19 @@
             color: var(--rouge-chalet);
         }
 
-        /* --- SÉLECTEUR DE LANGUE DANS LE MENU --- */
+        /* --- SÉLECTEUR DE LANGUE --- */
         .lang-switcher {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-left: 10px;
+            margin-left: 20px;
             border-left: 1px solid #ccc;
-            padding-left: 15px;
+            padding-left: 20px;
             user-select: none;
         }
 
         .emoji-flag {
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
             transition: transform 0.2s, filter 0.2s;
             line-height: 1;
@@ -103,6 +103,17 @@
         .emoji-flag:hover {
             transform: scale(1.2);
             filter: brightness(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .lang-switcher {
+                margin-left: 0;
+                margin-top: 10px;
+                border-left: none;
+                padding-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* --- SECTION HERO --- */
@@ -283,7 +294,7 @@
             text-align: right;
         }
 
-        /* --- CONTACT --- */
+        /* --- CONTACT (MODIFIÉ AVEC LES 3 MODULES) --- */
         .contact-container {
             display: flex;
             flex-direction: column;
@@ -296,6 +307,19 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-left: 5px solid var(--gris-anthracite);
+            flex: 1;
+        }
+
+        .contact-info h4 {
+            color: var(--gris-anthracite);
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--gris-clair);
+            padding-bottom: 10px;
+        }
+
+        .horaires-liste {
+            list-style: none;
         }
 
         .horaires-liste li {
@@ -303,6 +327,11 @@
             justify-content: space-between;
             padding: 8px 0;
             border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .horaires-liste li:last-child {
+            border-bottom: none;
         }
 
         .note-pratique {
@@ -325,6 +354,36 @@
             margin-top: 10px;
             width: 100%;
             text-align: center;
+        }
+
+        /* --- PAIEMENTS --- */
+        .paiement-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .badge-paiement {
+            background-color: var(--blanc-creme);
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gris-doux);
+            font-weight: 500;
+        }
+
+        /* Liste pour le contenu du distributeur */
+        .liste-distributeur {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: var(--gris-doux);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
         /* --- SOCIAL & FOOTER --- */
@@ -362,8 +421,7 @@
             .hero h1 { font-size: 48px; }
             .grid-produits { flex-direction: row; flex-wrap: wrap; justify-content: center; }
             .lien-carte { width: calc(50% - 20px); }
-            .contact-container { flex-direction: row; }
-            .contact-info { flex: 1; }
+            .contact-container { flex-direction: row; align-items: stretch; }
         }
     </style>
 </head>
@@ -456,28 +514,17 @@
 
     <section class="section-padding" id="contact" style="background-color: #f9f9f9;">
         <h2 class="section-titre"><span data-i18n="title-info">Infos</span> <span data-i18n="title-practical">Pratiques</span></h2>
+        
         <div class="contact-container">
-            <div class="contact-info">
-                <h4 data-i18n="info-find">📍 Nous trouver</h4>
-                <p>23 Route du Pont Rose<br>50270 Barneville-Carteret</p>
-                <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps">📍 Ouvrir dans Google Maps</a>
-                
-                <h4 data-i18n="info-contact" style="margin-top:20px;">📞 Nous contacter</h4>
-                <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
-                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact" style="background-color: var(--gris-anthracite);">✉️ chaletgourmand@orange.fr</a>
-
-                <h4 style="margin-top:20px;">📦 Services annexes</h4>
-                <div class="note-pratique" style="border-color: var(--rouge-chalet);">
-                    <strong data-i18n="relais-title">Point Relais :</strong> <span data-i18n="relais-desc">Retrait et dépôt de colis Pick-up & UPS.</span>
-                </div>
-            </div>
             
             <div class="contact-info">
-                <h4 data-i18n="info-hours">🕒 Horaires d'ouverture</h4>
-                <div class="note-pratique">
-                    💡 <strong data-i18n="hours-note-title">Bon à savoir :</strong> <span data-i18n="hours-note-text">Notre distributeur automatique est accessible en libre-service 24h/24 et 7j/7 !</span>
-                </div>
-                <ul class="horaires-liste">
+                <h4 data-i18n="mod-shop-title">🏪 Le Magasin</h4>
+                
+                <p style="font-size: 14px; margin-bottom: 15px; color: var(--gris-doux);">
+                    <strong data-i18n="mod-shop-address">Adresse :</strong> 23 Route du Pont Rose<br>50270 Barneville-Carteret
+                </p>
+                
+                <ul class="horaires-liste" style="margin-bottom: 20px;">
                     <li><span data-i18n="day-1">Lundi</span> <span>08:00 – 12:30 | 14:30 – 19:30</span></li>
                     <li><span data-i18n="day-2">Mardi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
                     <li><span data-i18n="day-3">Mercredi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
@@ -487,18 +534,60 @@
                     <li><span data-i18n="day-7">Dimanche</span> <span>08:30 – 13:00</span></li>
                 </ul>
 
-                <h4 style="margin-top:20px;">🛒 Nos Marchés</h4>
-                <p style="font-size: 14px; color: var(--gris-doux);" data-i18n="market-desc">Retrouvez nos fruits et légumes sur les marchés de <strong>Carteret, Beaumont-Hague et Les Pieux</strong>.</p>
+                <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps">📍 Itinéraire Google Maps</a>
+                <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact" style="background-color: var(--gris-anthracite);">✉️ chaletgourmand@orange.fr</a>
+                
+                <div class="note-pratique" style="margin-top: 15px; border-color: var(--rouge-chalet);">
+                    <strong data-i18n="relais-title">Point Relais :</strong> <span data-i18n="relais-desc">Retrait et dépôt de colis Pick-up & UPS.</span>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h4 data-i18n="mod-market-title">🛒 Nos Marchés</h4>
+                
+                <p style="font-size: 14px; color: var(--gris-doux); margin-bottom: 15px;" data-i18n="mod-market-intro">
+                    Retrouvez nos fruits, légumes et produits frais chaque semaine sur les marchés de la région :
+                </p>
+
+                <ul class="horaires-liste">
+                    <li>
+                        <strong data-i18n="market-loc-1">Carteret</strong> 
+                        <span data-i18n="market-time-1">Jour à préciser</span>
+                    </li>
+                    <li>
+                        <strong data-i18n="market-loc-2">Beaumont-Hague</strong> 
+                        <span data-i18n="market-time-2">Jour à préciser</span>
+                    </li>
+                    <li>
+                        <strong data-i18n="market-loc-3">Les Pieux</strong> 
+                        <span data-i18n="market-time-3">Jour à préciser</span>
+                    </li>
+                </ul>
             </div>
             
             <div class="contact-info" id="moyens-paiement">
-                <h4 data-i18n="info-pay">💳 Moyens de paiement</h4>
+                <h4 data-i18n="mod-vending-title">🧊 Le Distributeur 24/7</h4>
+                
+                <div class="note-pratique" data-i18n="mod-vending-note">
+                    Accessible en libre-service 24h/24 et 7j/7 devant la boutique !
+                </div>
+
+                <h5 data-i18n="mod-vending-content-title" style="color: var(--gris-anthracite); margin-bottom: 10px; font-size: 15px;">Ce que vous y trouverez :</h5>
+                <ul class="liste-distributeur">
+                    <li data-i18n="vending-item-1">Huîtres fraîches de producteurs locaux</li>
+                    <li data-i18n="vending-item-2">Plats préparés et terrines</li>
+                    <li data-i18n="vending-item-3">Sélection de fromages et produits du terroir</li>
+                </ul>
+
+                <h5 data-i18n="info-pay" style="color: var(--gris-anthracite); margin-top: 20px; margin-bottom: 10px; font-size: 15px;">💳 Moyens de paiement :</h5>
                 <div class="paiement-badges">
-                    <div class="badge-paiement">💳 <span data-i18n="pay-card">Carte Bancaire</span></div>
-                    <div class="badge-paiement">💶 <span data-i18n="pay-cash">Espèces</span></div>
-                    <div class="badge-paiement">🎟️ <span data-i18n="pay-ticket">Carte Tickets Restaurant</span></div>
+                    <div class="badge-paiement">💳 <span data-i18n="pay-card">Carte Bancaire (Boutique & Distributeur)</span></div>
+                    <div class="badge-paiement">💶 <span data-i18n="pay-cash">Espèces (Boutique uniquement)</span></div>
+                    <div class="badge-paiement">🎟️ <span data-i18n="pay-ticket">Tickets Restaurant (Boutique uniquement)</span></div>
                 </div>
             </div>
+
         </div>
     </section>
 
