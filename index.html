@@ -31,20 +31,22 @@
             line-height: 1.6;
         }
 
-        /* --- EN-TÊTE (HEADER) --- */
+        /* --- EN-TÊTE (HEADER) AVEC DRAPEAUX --- */
         header {
             background-color: var(--gris-anthracite);
             padding: 15px 20px;
-            text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Style pour le lien du logo */
         .logo-link {
             text-decoration: none;
             display: inline-block;
+            margin: 0 auto;
         }
 
         .logo-img {
@@ -56,6 +58,26 @@
 
         .logo-img:hover {
             transform: scale(1.03);
+        }
+
+        .lang-switcher-header {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            user-select: none;
+        }
+
+        .emoji-flag {
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s, filter 0.2s;
+            line-height: 1;
+        }
+
+        .emoji-flag:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
         }
 
         /* --- MENU DE NAVIGATION --- */
@@ -82,42 +104,6 @@
         nav a:hover {
             color: var(--rouge-chalet);
         }
-
-        /* --- DRAPEAUX LANGUES --- */
-/* --- SÉLECTEUR DE LANGUE (EMOJIS) --- */
-.lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-left: 20px;
-    border-left: 1px solid #ccc;
-    padding-left: 20px;
-    user-select: none; /* Évite de sélectionner l'emoji par erreur au clic */
-}
-
-.emoji-flag {
-    font-size: 22px; /* Taille de l'emoji */
-    cursor: pointer;
-    transition: transform 0.2s, filter 0.2s;
-    line-height: 1;
-}
-
-.emoji-flag:hover {
-    transform: scale(1.2);
-    filter: brightness(1.2);
-}
-
-/* Adaptation mobile */
-@media (max-width: 768px) {
-    .lang-switcher {
-        margin-left: 0;
-        margin-top: 10px;
-        border-left: none;
-        padding-left: 0;
-        width: 100%;
-        justify-content: center;
-    }
-}
 
         /* --- SECTION HERO --- */
         .hero {
@@ -186,6 +172,39 @@
         .btn-secondaire {
             background-color: white;
             color: var(--gris-anthracite);
+        }
+
+        /* --- BANDEAU ARRIVAGE --- */
+        .arrivage-banner {
+            margin: 30px auto 0 auto;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            max-width: 90%;
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ff3b30;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
         }
 
         /* --- SECTIONS --- */
@@ -324,23 +343,20 @@
 </head>
 <body>
 
-    <!-- EN-TÊTE AVEC LOGO CLIQUABLE -->
     <header>
         <a href="index.html" class="logo-link">
             <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
         </a>
+        <div class="lang-switcher-header">
+            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+        </div>
     </header>
 
-    <!-- MENU DE NAVIGATION (ACCUEIL RETIRÉ) -->
     <nav>
         <a href="#produits" data-i18n="nav-products">Nos Rayons</a>
         <a href="#contact" data-i18n="nav-contact">Contact</a>
         <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
-        
-<div class="lang-switcher">
-    <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
-    <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
-</div>
     </nav>
 
     <section class="hero" id="accueil">
@@ -352,9 +368,13 @@
             <a href="#contact" class="btn" data-i18n="btn-visit">Nous rendre visite</a>
             <a href="AuChaletGourmand.pdf" target="_blank" class="btn btn-secondaire" data-i18n="btn-menu">🍽️ Plat du jour & Menu (PDF)</a>
         </div>
+
+        <div id="bandeau-arrivage" class="arrivage-banner" style="display: none;">
+            <span class="pulse-dot"></span>
+            <span id="texte-arrivage-content"></span>
+        </div>
     </section>
 
-    <!-- LE RESTE DE LA PAGE RESTE IDENTIQUE -->
     <section class="section-padding" id="produits" style="background-color: #f9f9f9;">
         <h2 class="section-titre"><span data-i18n="title-our">Nos</span> <span data-i18n="title-sections">Rayons</span></h2>
         <div class="grid-produits">
@@ -443,9 +463,20 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> Cotentin Web Studio</p>
+        <p>© 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> Cotentin Web Studio</p>
     </footer>
 
     <script src="lang.js"></script>
+    <script src="arrivage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof texteArrivage !== 'undefined' && texteArrivage.trim() !== "") {
+                const bandeau = document.getElementById('bandeau-arrivage');
+                const contenu = document.getElementById('texte-arrivage-content');
+                contenu.innerText = texteArrivage;
+                bandeau.style.display = 'inline-flex';
+            }
+        });
+    </script>
 </body>
 </html>
