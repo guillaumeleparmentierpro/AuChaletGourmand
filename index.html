@@ -31,22 +31,19 @@
             line-height: 1.6;
         }
 
-        /* --- EN-TÊTE (HEADER) AVEC DRAPEAUX --- */
+        /* --- EN-TÊTE (HEADER) --- */
         header {
             background-color: var(--gris-anthracite);
             padding: 15px 20px;
+            text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .logo-link {
             text-decoration: none;
             display: inline-block;
-            margin: 0 auto;
         }
 
         .logo-img {
@@ -58,26 +55,6 @@
 
         .logo-img:hover {
             transform: scale(1.03);
-        }
-
-        .lang-switcher-header {
-            position: absolute;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            user-select: none;
-        }
-
-        .emoji-flag {
-            font-size: 22px;
-            cursor: pointer;
-            transition: transform 0.2s, filter 0.2s;
-            line-height: 1;
-        }
-
-        .emoji-flag:hover {
-            transform: scale(1.2);
-            filter: brightness(1.2);
         }
 
         /* --- MENU DE NAVIGATION --- */
@@ -103,6 +80,29 @@
 
         nav a:hover {
             color: var(--rouge-chalet);
+        }
+
+        /* --- SÉLECTEUR DE LANGUE DANS LE MENU --- */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 10px;
+            border-left: 1px solid #ccc;
+            padding-left: 15px;
+            user-select: none;
+        }
+
+        .emoji-flag {
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, filter 0.2s;
+            line-height: 1;
+        }
+
+        .emoji-flag:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
         }
 
         /* --- SECTION HERO --- */
@@ -257,6 +257,32 @@
             padding: 20px;
         }
 
+        /* --- SECTION PRESSE --- */
+        .presse-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 5px solid var(--rouge-chalet);
+            position: relative;
+        }
+
+        .presse-card blockquote {
+            font-style: italic;
+            color: var(--gris-doux);
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .presse-source {
+            font-weight: bold;
+            color: var(--gris-anthracite);
+            font-size: 14px;
+            text-align: right;
+        }
+
         /* --- CONTACT --- */
         .contact-container {
             display: flex;
@@ -279,7 +305,7 @@
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .note-247 {
+        .note-pratique {
             margin-bottom: 15px;
             padding: 10px;
             background-color: #f8fcf8;
@@ -347,16 +373,17 @@
         <a href="index.html" class="logo-link">
             <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
         </a>
-        <div class="lang-switcher-header">
-            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
-            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
-        </div>
     </header>
 
     <nav>
         <a href="#produits" data-i18n="nav-products">Nos Rayons</a>
         <a href="#contact" data-i18n="nav-contact">Contact</a>
         <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
+        
+        <div class="lang-switcher">
+            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+        </div>
     </nav>
 
     <section class="hero" id="accueil">
@@ -417,20 +444,37 @@
         </div>
     </section>
 
-    <section class="section-padding" id="contact">
+    <section class="section-padding" style="background-color: white;">
+        <h2 class="section-titre"><span data-i18n="title-seen">Vu dans la</span> <span>Presse</span></h2>
+        <div class="presse-card">
+            <blockquote>
+                « Au Chalet gourmand est réputé pour ses fruits de mer, son poisson, ses produits du terroir, sa cave à vin, ses fruits et légumes de Surtainville, ses plats préparés, son rayon fromage. Afin de satisfaire encore plus sa clientèle, Anne-Laure a installé un très grand distributeur automatique [...] Ouvert 24h/24h. »
+            </blockquote>
+            <p class="presse-source">— Extrait de La Presse de la Manche, Janvier 2025</p>
+        </div>
+    </section>
+
+    <section class="section-padding" id="contact" style="background-color: #f9f9f9;">
         <h2 class="section-titre"><span data-i18n="title-info">Infos</span> <span data-i18n="title-practical">Pratiques</span></h2>
         <div class="contact-container">
             <div class="contact-info">
                 <h4 data-i18n="info-find">📍 Nous trouver</h4>
                 <p>23 Route du Pont Rose<br>50270 Barneville-Carteret</p>
                 <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps">📍 Ouvrir dans Google Maps</a>
+                
                 <h4 data-i18n="info-contact" style="margin-top:20px;">📞 Nous contacter</h4>
                 <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
                 <a href="mailto:chaletgourmand@orange.fr" class="btn-contact" style="background-color: var(--gris-anthracite);">✉️ chaletgourmand@orange.fr</a>
+
+                <h4 style="margin-top:20px;">📦 Services annexes</h4>
+                <div class="note-pratique" style="border-color: var(--rouge-chalet);">
+                    <strong data-i18n="relais-title">Point Relais :</strong> <span data-i18n="relais-desc">Retrait et dépôt de colis Pick-up & UPS.</span>
+                </div>
             </div>
+            
             <div class="contact-info">
                 <h4 data-i18n="info-hours">🕒 Horaires d'ouverture</h4>
-                <div class="note-247">
+                <div class="note-pratique">
                     💡 <strong data-i18n="hours-note-title">Bon à savoir :</strong> <span data-i18n="hours-note-text">Notre distributeur automatique est accessible en libre-service 24h/24 et 7j/7 !</span>
                 </div>
                 <ul class="horaires-liste">
@@ -442,7 +486,11 @@
                     <li><span data-i18n="day-6">Samedi</span> <span>08:30 – 13:00 | 14:00 – 19:30</span></li>
                     <li><span data-i18n="day-7">Dimanche</span> <span>08:30 – 13:00</span></li>
                 </ul>
+
+                <h4 style="margin-top:20px;">🛒 Nos Marchés</h4>
+                <p style="font-size: 14px; color: var(--gris-doux);" data-i18n="market-desc">Retrouvez nos fruits et légumes sur les marchés de <strong>Carteret, Beaumont-Hague et Les Pieux</strong>.</p>
             </div>
+            
             <div class="contact-info" id="moyens-paiement">
                 <h4 data-i18n="info-pay">💳 Moyens de paiement</h4>
                 <div class="paiement-badges">
