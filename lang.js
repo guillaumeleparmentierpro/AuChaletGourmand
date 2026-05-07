@@ -79,7 +79,7 @@ const translations = {
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
         'cc-subtitle': 'Sécurisez vos commandes fraîches et retirez-les 24h/24 !',
-        'cc-how': 'Comment',
+        'cc-how': 'Comment ça marche ?',
         'step-1-title': '1. Je choisis',
         'step-1-desc': 'Sélectionnez un de nos packs exclusifs détaillés ci-dessous.',
         'step-2-title': '2. Je réserve & je paie',
@@ -192,7 +192,7 @@ const translations = {
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
         'cc-subtitle': 'Secure your fresh orders and pick them up 24/7!',
-        'cc-how': 'How',
+        'cc-how': 'How to do ?',
         'step-1-title': '1. I Choose',
         'step-1-desc': 'Select one of our exclusive packs detailed below.',
         'step-2-title': '2. I Book & Pay',
