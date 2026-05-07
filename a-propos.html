@@ -20,6 +20,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -28,24 +29,63 @@
             line-height: 1.6;
         }
 
-        /* --- HEADER & NAV --- */
+        /* --- EN-TÊTE (HEADER) IDENTIQUE À L'ACCUEIL --- */
         header {
             background-color: var(--gris-anthracite);
-            padding: 10px 20px;
-            text-align: center;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 auto;
         }
 
         .logo-img {
-            max-height: 90px;
+            max-height: 130px;
             width: auto;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
         }
 
+        .logo-img:hover {
+            transform: scale(1.03);
+        }
+
+        .lang-switcher-header {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            user-select: none;
+        }
+
+        .emoji-flag {
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s, filter 0.2s;
+            line-height: 1;
+        }
+
+        .emoji-flag:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+
+        /* --- MENU DE NAVIGATION --- */
         nav {
             background-color: var(--gris-clair);
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
             padding: 12px 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
@@ -56,6 +96,11 @@
             font-weight: 600;
             font-size: 14px;
             text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--rouge-chalet);
         }
 
         /* --- CONTENU --- */
@@ -111,37 +156,43 @@
 <body>
 
     <header>
-        <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
+        <a href="index.html" class="logo-link">
+            <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
+        </a>
+        <div class="lang-switcher-header">
+            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+        </div>
     </header>
 
     <nav>
-        <a href="index.html#accueil">Accueil</a>
-        <a href="index.html#produits">Nos Rayons</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="a-propos.html" style="color: var(--rouge-chalet);">À Propos</a>
+        <a href="index.html#produits" data-i18n="nav-products">Nos Rayons</a>
+        <a href="index.html#contact" data-i18n="nav-contact">Contact</a>
+        <a href="a-propos.html" style="color: var(--rouge-chalet);" data-i18n="nav-about">À Propos</a>
     </nav>
 
     <main class="content-padding">
-        <h1 class="section-titre">Notre <span>Histoire</span></h1>
+        <h1 class="section-titre"><span data-i18n="about-title-our">Notre</span> <span data-i18n="about-title-story">Histoire</span></h1>
         
         <img src="Imgfondtitre.jpg" alt="La boutique" class="about-img">
 
         <div class="story-text">
-            <p>Situé au cœur de Barneville-Carteret, <strong>Au Chalet Gourmand</strong> est né d'une passion profonde pour les richesses culinaires de notre belle Normandie.</p>
+            <p data-i18n="about-p1">Ouverte depuis 2015 par Anne-Laure Gaumain au cœur de Barneville-Carteret, la boutique-poissonnerie <strong>Au Chalet Gourmand</strong> est née d'une passion profonde pour les richesses culinaires de notre belle Normandie.</p>
             
-            <h2>L'Amour du Terroir</h2>
-            <p>Depuis notre création, notre mission est simple : offrir à nos clients le meilleur de la terre et de la mer. Nous croyons fermement à la qualité des produits locaux et au savoir-faire de nos producteurs partenaires, comme nos maraîchers de Surtainville ou nos pêcheurs du Cotentin.</p>
+            <h2 data-i18n="about-h2-1">L'Amour du Terroir et des Circuits Courts</h2>
+            <p data-i18n="about-p2">Notre mission est simple : offrir à nos clients le meilleur de la terre et de la mer. Nous travaillons main dans la main avec des producteurs et professionnels locaux reconnus. Vous retrouverez sur nos étals les huîtres de Paolo, ou encore les fruits de mer et poissons pêchés par Gilles Muzard et Laurent Blondel, figures emblématiques de la pêche à Carteret. Côté terre, nous privilégions les fruits et légumes cultivés sur nos terres maraîchères de Surtainville.</p>
             
-            <h2>Une Équipe à votre écoute</h2>
-            <p>Que vous soyez à la recherche d'un homard bleu d'exception, de légumes croquants fraîchement cueillis ou d'un plateau de fruits de mer sur-mesure pour vos événements, nous mettons tout en œuvre pour vous conseiller et accompagner vos talents culinaires.</p>
+            <h2 data-i18n="about-h2-2">Une Équipe à votre écoute</h2>
+            <p data-i18n="about-p3">Que vous souhaitiez commander une choucroute de la mer, une paella, ou composer un repas complet, Anne-Laure et Vanessa mettent tout en œuvre pour vous conseiller avec le sourire et accompagner vos talents culinaires.</p>
 
-            <p style="font-style: italic; text-align: center; margin-top: 30px;">"La gourmandise est un art, le terroir est notre inspiration."</p>
+            <p style="font-style: italic; text-align: center; margin-top: 30px;" data-i18n="about-quote">"La gourmandise est un art, le terroir est notre inspiration."</p>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Au Chalet Gourmand. Tous droits réservés. <br><br> Création web : Cotentin Web Studio</p>
+        <p>© 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> Cotentin Web Studio</p>
     </footer>
 
+    <script src="lang.js"></script>
 </body>
 </html>
