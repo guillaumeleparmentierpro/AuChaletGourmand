@@ -82,14 +82,14 @@
             color: var(--rouge-chalet);
         }
 
-        /* --- SÉLECTEUR DE LANGUE --- */
+        /* --- SÉLECTEUR DE LANGUE DANS LE MENU (CORRIGÉ SELON MAQUETTE) --- */
         .lang-switcher {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-left: 20px;
+            gap: 12px;
+            margin-left: 5px;
             border-left: 1px solid #ccc;
-            padding-left: 20px;
+            padding-left: 15px;
             user-select: none;
         }
 
@@ -294,7 +294,7 @@
             text-align: right;
         }
 
-        /* --- CONTACT (MODIFIÉ AVEC LES 3 MODULES) --- */
+        /* --- CONTACT (MODULES) --- */
         .contact-container {
             display: flex;
             flex-direction: column;
@@ -308,6 +308,8 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-left: 5px solid var(--gris-anthracite);
             flex: 1;
+            /* L'astuce pour corriger l'ancre bloquée sous le header ! */
+            scroll-margin-top: 100px; 
         }
 
         .contact-info h4 {
@@ -343,9 +345,10 @@
             border-radius: 4px;
         }
 
+        /* Correction des boutons de contact (Uniformisation Anthracite) */
         .btn-contact {
             display: inline-block;
-            background-color: var(--rouge-chalet);
+            background-color: var(--gris-anthracite); /* Tous en anthracite */
             color: white;
             padding: 10px 20px;
             border-radius: 20px;
@@ -354,6 +357,11 @@
             margin-top: 10px;
             width: 100%;
             text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--rouge-chalet); /* Touche rouge au survol */
         }
 
         /* --- PAIEMENTS --- */
@@ -376,7 +384,6 @@
             font-weight: 500;
         }
 
-        /* Liste pour le contenu du distributeur */
         .liste-distributeur {
             list-style-type: disc;
             padding-left: 20px;
@@ -445,7 +452,7 @@
     </nav>
 
     <section class="hero" id="accueil">
-        <a href="#moyens-paiement" class="badge-247" data-i18n="hero-badge">Équipé d'un Distributeur Libre-Service 24h/24 & 7j/7</a>
+        <a href="#distributeur" class="badge-247" data-i18n="hero-badge">Équipé d'un Distributeur Libre-Service 24h/24 & 7j/7</a>
         <h1 data-i18n="hero-title">L'excellence du terroir<br>Normand</h1>
         <p data-i18n="hero-subtitle">De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville-Carteret.</p>
         
@@ -518,7 +525,7 @@
         <div class="contact-container">
             
             <div class="contact-info">
-                <h4 data-i18n="mod-shop-title">🏪 Le Magasin</h4>
+                <h4 data-i18n="mod-shop-title">Le Magasin</h4>
                 
                 <p style="font-size: 14px; margin-bottom: 15px; color: var(--gris-doux);">
                     <strong data-i18n="mod-shop-address">Adresse :</strong> 23 Route du Pont Rose<br>50270 Barneville-Carteret
@@ -536,7 +543,7 @@
 
                 <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps">📍 Itinéraire Google Maps</a>
                 <a href="tel:0233046140" class="btn-contact">📞 02 33 04 61 40</a>
-                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact" style="background-color: var(--gris-anthracite);">✉️ chaletgourmand@orange.fr</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact">✉️ chaletgourmand@orange.fr</a>
                 
                 <div class="note-pratique" style="margin-top: 15px; border-color: var(--rouge-chalet);">
                     <strong data-i18n="relais-title">Point Relais :</strong> <span data-i18n="relais-desc">Retrait et dépôt de colis Pick-up & UPS.</span>
@@ -544,7 +551,7 @@
             </div>
             
             <div class="contact-info">
-                <h4 data-i18n="mod-market-title">🛒 Nos Marchés</h4>
+                <h4 data-i18n="mod-market-title">Nos Marchés</h4>
                 
                 <p style="font-size: 14px; color: var(--gris-doux); margin-bottom: 15px;" data-i18n="mod-market-intro">
                     Retrouvez nos fruits, légumes et produits frais chaque semaine sur les marchés de la région :
@@ -553,21 +560,21 @@
                 <ul class="horaires-liste">
                     <li>
                         <strong data-i18n="market-loc-1">Carteret</strong> 
-                        <span data-i18n="market-time-1">Jour à préciser</span>
+                        <span data-i18n="market-time-1">Jeudi</span>
                     </li>
                     <li>
-                        <strong data-i18n="market-loc-2">Beaumont-Hague</strong> 
-                        <span data-i18n="market-time-2">Jour à préciser</span>
+                        <strong data-i18n="market-loc-2">Les Pieux</strong> 
+                        <span data-i18n="market-time-2">Vendredi</span>
                     </li>
                     <li>
-                        <strong data-i18n="market-loc-3">Les Pieux</strong> 
-                        <span data-i18n="market-time-3">Jour à préciser</span>
+                        <strong data-i18n="market-loc-3">Beaumont-Hague</strong> 
+                        <span data-i18n="market-time-3">Samedi</span>
                     </li>
                 </ul>
             </div>
             
-            <div class="contact-info" id="moyens-paiement">
-                <h4 data-i18n="mod-vending-title">🧊 Le Distributeur 24/7</h4>
+            <div class="contact-info" id="distributeur">
+                <h4 data-i18n="mod-vending-title">Le Distributeur 24/7</h4>
                 
                 <div class="note-pratique" data-i18n="mod-vending-note">
                     Accessible en libre-service 24h/24 et 7j/7 devant la boutique !
