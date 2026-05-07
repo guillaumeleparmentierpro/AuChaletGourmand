@@ -32,11 +32,13 @@
             line-height: 1.6;
         }
 
-        /* --- EN-TÊTE (HEADER) --- */
+        /* --- EN-TÊTE (HEADER) AVEC DRAPEAUX --- */
         header {
             background-color: var(--gris-anthracite);
             padding: 15px 20px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -58,13 +60,37 @@
             transform: scale(1.03);
         }
 
+        /* Positionnement des drapeaux à droite du logo */
+        .header-lang-switcher {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            user-select: none;
+        }
+
+        .emoji-flag {
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s;
+            line-height: 1;
+            /* Forçage de la couleur blanche si affiché en texte sous Windows */
+            color: white; 
+            font-weight: bold;
+        }
+
+        .emoji-flag:hover {
+            transform: scale(1.2);
+            color: var(--rouge-chalet); /* Devient rouge au survol */
+        }
+
         /* --- MENU DE NAVIGATION --- */
         nav {
             background-color: var(--gris-clair);
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Permet au menu de tenir sur 2 lignes proprement sur mobile */
             gap: 20px;
             padding: 12px 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -77,44 +103,11 @@
             font-size: 14px;
             text-transform: uppercase;
             transition: color 0.2s;
+            white-space: nowrap; /* Empêche un lien de se couper en plein milieu d'un mot */
         }
 
         nav a:hover {
             color: var(--rouge-chalet);
-        }
-
-        /* --- SÉLECTEUR DE LANGUE DANS LE MENU --- */
-        .lang-switcher {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: 5px;
-            border-left: 1px solid #ccc;
-            padding-left: 15px;
-            user-select: none;
-        }
-
-        .emoji-flag {
-            font-size: 22px;
-            cursor: pointer;
-            transition: transform 0.2s, filter 0.2s;
-            line-height: 1;
-        }
-
-        .emoji-flag:hover {
-            transform: scale(1.2);
-            filter: brightness(1.2);
-        }
-
-        @media (max-width: 768px) {
-            .lang-switcher {
-                margin-left: 0;
-                margin-top: 10px;
-                border-left: none;
-                padding-left: 0;
-                width: 100%;
-                justify-content: center;
-            }
         }
 
         /* --- SECTION HERO --- */
@@ -125,23 +118,9 @@
             color: white;
             padding: 30px 20px 60px;
             text-align: center;
-        }
-
-        .badge-247 {
-            display: block;
-            width: fit-content;
-            max-width: 90%;
-            margin: 0 auto 25px auto;
-            background-color: var(--vert-ouvert);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            letter-spacing: 1px;
-            text-decoration: none;
-            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .hero h1 {
@@ -153,42 +132,13 @@
 
         .hero p {
             font-size: 18px;
-            margin-bottom: 30px;
+            margin-bottom: 25px; /* Marge réduite pour laisser place au bandeau arrivage */
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-
-        .hero-boutons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--rouge-chalet);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-        }
-
-        .btn-secondaire {
-            background-color: white;
-            color: var(--gris-anthracite);
         }
 
         /* --- BANDEAU ARRIVAGE --- */
         .arrivage-banner {
-            margin: 30px auto 0 auto;
+            margin-bottom: 25px; /* Espace sous le bandeau avant le bouton visiter */
             background-color: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(5px);
@@ -217,6 +167,45 @@
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+        }
+
+        /* --- BOUTONS HERO --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--rouge-chalet);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+            margin-bottom: 25px; /* Espace entre le bouton rouge et le bouton vert */
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .badge-247 {
+            display: block;
+            width: fit-content;
+            max-width: 90%;
+            background-color: var(--vert-ouvert);
+            color: white;
+            padding: 10px 20px; /* Un peu plus grand pour compenser la perte du 2ème bouton */
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .badge-247:hover {
+            transform: scale(1.03);
         }
 
         /* --- SECTIONS --- */
@@ -311,9 +300,9 @@
             flex: 1;
         }
 
-        /* Correction de l'ancre pour qu'elle s'arrête exactement sur le titre */
+        /* Correction de l'ancre pour qu'elle s'arrête exactement sur le titre (marge augmentée) */
         h4#distributeur {
-            scroll-margin-top: 100px;
+            scroll-margin-top: 120px;
         }
 
         .contact-info h4 {
@@ -349,11 +338,11 @@
             border-radius: 4px;
         }
 
-        /* --- BOUTONS DE CONTACT (Tous Anthracite) --- */
+        /* --- BOUTONS DE CONTACT --- */
         .btn-contact {
             display: inline-block;
             background-color: var(--gris-anthracite);
-            color: white !important; /* Force la couleur blanche du texte pour iOS */
+            color: white !important;
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
@@ -442,34 +431,32 @@
         <a href="index.html" class="logo-link">
             <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
         </a>
+        <div class="header-lang-switcher">
+            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+        </div>
     </header>
 
     <nav>
         <a href="#produits" data-i18n="nav-products">Nos Rayons</a>
         <a href="#contact" data-i18n="nav-click">Click & Collect</a>
+        <a href="AuChaletGourmand.pdf" target="_blank" data-i18n="nav-menu">Menu du Jour</a>
         <a href="#contact" data-i18n="nav-contact">Contact</a>
         <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
-        
-        <div class="lang-switcher">
-            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
-            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
-        </div>
     </nav>
 
     <section class="hero" id="accueil">
-        <a href="#distributeur" class="badge-247" data-i18n="hero-badge">Équipé d'un Distributeur Libre-Service 24h/24 & 7j/7</a>
         <h1 data-i18n="hero-title">L'excellence du terroir<br>Normand</h1>
         <p data-i18n="hero-subtitle">De la mer à la terre, découvrez nos produits frais et locaux sélectionnés avec passion à Barneville-Carteret.</p>
         
-        <div class="hero-boutons">
-            <a href="#contact" class="btn" data-i18n="btn-visit">Nous rendre visite</a>
-            <a href="AuChaletGourmand.pdf" target="_blank" class="btn btn-secondaire" data-i18n="btn-menu">🍽️ Plat du jour & Menu (PDF)</a>
-        </div>
-
         <div id="bandeau-arrivage" class="arrivage-banner" style="display: none;">
             <span class="pulse-dot"></span>
             <span id="texte-arrivage-content"></span>
         </div>
+
+        <a href="#contact" class="btn" data-i18n="btn-visit">Nous rendre visite</a>
+        
+        <a href="#distributeur" class="badge-247" data-i18n="hero-badge">Équipé d'un Distributeur Libre-Service 24h/24 & 7j/7</a>
     </section>
 
     <section class="section-padding" id="produits" style="background-color: #f9f9f9;">
