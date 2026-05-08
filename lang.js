@@ -66,8 +66,6 @@ const translations = {
         'market-time-3': 'Samedi',
 
         // Infos Pratiques - Le Distributeur
-        'mod-vending-title': 'Le Distributeur 24/7',
-        'mod-vending-note': 'Accessible en libre-service 24h/24 et 7j/7 devant la boutique !',
         'mod-vending-content-title': 'Ce que vous y trouverez :',
         'vending-item-1': 'Huîtres fraîches de producteurs locaux',
         'vending-item-2': 'Plats préparés et terrines',
@@ -182,8 +180,6 @@ const translations = {
         'market-time-3': 'Saturday',
 
         // Infos Pratiques - Le Distributeur
-        'mod-vending-title': 'The 24/7 Vending Machine',
-        'mod-vending-note': 'Accessible for self-service 24/7 right outside the shop!',
         'mod-vending-content-title': 'What you\'ll find inside:',
         'vending-item-1': 'Fresh oysters from local producers',
         'vending-item-2': 'Prepared dishes and terrines',
