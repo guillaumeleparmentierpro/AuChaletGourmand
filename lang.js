@@ -129,7 +129,7 @@ const translations = {
                 'menu-title-our': 'Our',
         'menu-title-daily': 'Daily Menu',
         'menu-starters': 'Starters',
-        'menu-mains': 'prepared meals',
+        'menu-mains': 'Prepared Meals',
         // Navigation
         'nav-home': 'Home',
         'nav-products': 'Our Sections',
