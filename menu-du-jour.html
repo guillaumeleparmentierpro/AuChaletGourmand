@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu du Jour - Au Chalet Gourmand</title>
+    <style>
+        /* --- VARIABLES DE COULEURS --- */
+        :root {
+            --gris-anthracite: #2a2a2a;
+            --rouge-chalet: #e61a22;
+            --blanc-creme: #fcfcfc;
+            --texte-sombre: #1a1a1a;
+            --gris-doux: #666666;
+            --gris-clair: #e8e8e8;
+            --vert-ouvert: #28a745;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--blanc-creme);
+            color: var(--texte-sombre);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- EN-TÊTE (HEADER) --- */
+        header {
+            background-color: var(--gris-anthracite);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .logo-img {
+            max-height: 130px;
+            width: auto;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.03);
+        }
+
+        .lang-switcher-header {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            user-select: none;
+        }
+
+        .emoji-flag {
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s;
+            line-height: 1;
+            color: white; 
+            font-weight: bold;
+        }
+
+        .emoji-flag:hover {
+            transform: scale(1.2);
+            color: var(--rouge-chalet);
+        }
+
+        /* --- MENU DE NAVIGATION --- */
+        nav {
+            background-color: var(--gris-clair);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: var(--gris-anthracite);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--rouge-chalet);
+        }
+
+        nav a.active {
+            color: var(--rouge-chalet);
+            border-bottom: 2px solid var(--rouge-chalet);
+            padding-bottom: 3px;
+        }
+
+        /* --- CONTENU --- */
+        .content-padding {
+            padding: 40px 20px 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-titre {
+            text-align: center;
+            font-size: 28px;
+            color: var(--gris-anthracite);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .section-titre span {
+            color: var(--rouge-chalet);
+        }
+
+        /* --- ANIMATION REVEAL ON SCROLL --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- STYLE DE L'ARDOISE / MENU --- */
+        .menu-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--rouge-chalet);
+            text-align: center;
+            position: relative;
+        }
+
+        .menu-date {
+            color: var(--gris-doux);
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .menu-section-title {
+            color: var(--rouge-chalet);
+            font-size: 24px;
+            margin: 35px 0 20px;
+            border-bottom: 2px solid var(--gris-clair);
+            padding-bottom: 10px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .menu-item {
+            margin-bottom: 25px;
+        }
+
+        .menu-item-name {
+            font-weight: bold;
+            color: var(--gris-anthracite);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .menu-item-desc {
+            color: var(--gris-doux);
+            font-size: 15px;
+        }
+
+        .menu-item-price {
+            color: var(--vert-ouvert);
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .btn-reservation {
+            display: inline-block;
+            background-color: var(--rouge-chalet);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 40px;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-reservation:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--gris-anthracite);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 13px;
+            margin-top: 40px;
+            border-top: 4px solid var(--rouge-chalet);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
+        </a>
+        <div class="lang-switcher-header">
+            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html#produits" data-i18n="nav-products">Nos Rayons</a>
+        <a href="call-and-collect.html" data-i18n="nav-click">Call & Collect</a>
+        <a href="menu-du-jour.html" class="active" data-i18n="nav-menu">Menu du Jour</a>
+        <a href="index.html#contact" data-i18n="nav-contact">Contact</a>
+        <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
+    </nav>
+
+    <main class="content-padding">
+        <h1 class="section-titre"><span data-i18n="menu-title-our">Notre</span> <span data-i18n="menu-title-daily">Menu du Jour</span></h1>
+        
+        <div class="menu-card reveal">
+            <p class="menu-date" data-i18n="menu-date">Aujourd'hui au Chalet Gourmand</p>
+            
+            <h2 class="menu-section-title" data-i18n="menu-starters">Les Entrées</h2>
+            <div class="menu-item">
+                <div class="menu-item-name" data-i18n="menu-item-1-name">Soupe de Poissons Maison</div>
+                <div class="menu-item-desc" data-i18n="menu-item-1-desc">Accompagnée de sa rouille, emmental râpé et de croûtons</div>
+                <div class="menu-item-price">8.50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name" data-i18n="menu-item-2-name">Rillettes aux deux Saumons</div>
+                <div class="menu-item-desc" data-i18n="menu-item-2-desc">Recette artisanale d'Anne-Laure</div>
+                <div class="menu-item-price">7.00 €</div>
+            </div>
+            
+            <h2 class="menu-section-title" data-i18n="menu-mains">Les Plats Préparés</h2>
+            <div class="menu-item">
+                <div class="menu-item-name" data-i18n="menu-item-3-name">Choucroute de la Mer</div>
+                <div class="menu-item-desc" data-i18n="menu-item-3-desc">Chou au vin blanc, saumon, cabillaud, haddock fumé et crevettes</div>
+                <div class="menu-item-price">18.50 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name" data-i18n="menu-item-4-name">Bouchée à la Reine aux Fruits de Mer</div>
+                <div class="menu-item-desc" data-i18n="menu-item-4-desc">Saint-Jacques, crevettes et moules dans un feuilleté pur beurre</div>
+                <div class="menu-item-price">14.00 €</div>
+            </div>
+
+            <a href="call-and-collect.html" class="btn-reservation" data-i18n="menu-btn-reserve">☎︎ Réserver (Call & Collect)</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> <a href="https://cotentinwebstudio.fr/index.html" target="_blank" style="color: var(--rouge-chalet); text-decoration: none; font-weight: bold;">Cotentin Web Studio</a></p>
+    </footer>
+
+    <script src="lang.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Script pour l'animation au défilement
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
