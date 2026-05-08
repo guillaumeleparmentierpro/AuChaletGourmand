@@ -196,7 +196,7 @@
             margin-top: 5px;
         }
 
-        /* --- BOUTONS D'ACTION (NOUVEAU) --- */
+        /* --- BOUTONS D'ACTION --- */
         .action-buttons {
             display: flex;
             flex-direction: column;
@@ -206,14 +206,18 @@
         }
 
         .btn-action {
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 15px 30px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            background-color: var(--rouge-chalet);
+            color: white !important;
+            min-height: 75px; /* Aligne parfaitement les hauteurs */
         }
 
         .btn-action:hover {
@@ -221,14 +225,21 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-tel {
-            background-color: var(--gris-anthracite);
-            color: white;
+        .btn-tel-line1 {
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 4px;
         }
 
-        .btn-cc {
-            background-color: var(--vert-ouvert);
-            color: white;
+        .btn-tel-line2 {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .btn-cc-text {
+            font-size: 18px;
+            font-weight: bold;
         }
 
         /* Responsive pour les boutons d'action sur grand écran */
@@ -238,7 +249,8 @@
                 gap: 20px;
             }
             .btn-action {
-                font-size: 18px;
+                flex: 1; /* Les boutons prennent la même largeur */
+                max-width: 300px;
             }
         }
 
@@ -287,8 +299,13 @@
             <div id="conteneur-plats"></div>
 
             <div class="action-buttons">
-                <a href="tel:0233046140" class="btn-action btn-tel" data-i18n="menu-btn-call">☎︎ Appeler au 02 33 04 61 40</a>
-                <a href="call-and-collect.html" class="btn-action btn-cc" data-i18n="menu-btn-cc">🛍️ Call & Collect</a>
+                <a href="tel:0233046140" class="btn-action">
+                    <span class="btn-tel-line1" data-i18n="menu-btn-call-l1">☎︎ Appeler au :</span>
+                    <span class="btn-tel-line2">02 33 04 61 40</span>
+                </a>
+                <a href="call-and-collect.html" class="btn-action">
+                    <span class="btn-cc-text" data-i18n="menu-btn-cc">Call & Collect</span>
+                </a>
             </div>
         </div>
     </main>
