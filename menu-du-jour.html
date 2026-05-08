@@ -196,22 +196,50 @@
             margin-top: 5px;
         }
 
-        .btn-reservation {
+        /* --- BOUTONS D'ACTION (NOUVEAU) --- */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .btn-action {
             display: inline-block;
-            background-color: var(--rouge-chalet);
-            color: white;
             padding: 15px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
-            margin-top: 40px;
-            transition: transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
         }
 
-        .btn-reservation:hover {
-            transform: scale(1.05);
+        .btn-action:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-tel {
+            background-color: var(--gris-anthracite);
+            color: white;
+        }
+
+        .btn-cc {
+            background-color: var(--vert-ouvert);
+            color: white;
+        }
+
+        /* Responsive pour les boutons d'action sur grand écran */
+        @media (min-width: 600px) {
+            .action-buttons {
+                flex-direction: row;
+                gap: 20px;
+            }
+            .btn-action {
+                font-size: 18px;
+            }
         }
 
         /* --- FOOTER --- */
@@ -258,7 +286,10 @@
             <h2 class="menu-section-title" data-i18n="menu-mains">Les Plats Préparés</h2>
             <div id="conteneur-plats"></div>
 
-            <a href="call-and-collect.html" class="btn-reservation" data-i18n="menu-btn-reserve">☎︎ Réserver (Call & Collect)</a>
+            <div class="action-buttons">
+                <a href="tel:0233046140" class="btn-action btn-tel" data-i18n="menu-btn-call">☎︎ Appeler au 02 33 04 61 40</a>
+                <a href="call-and-collect.html" class="btn-action btn-cc" data-i18n="menu-btn-cc">🛍️ Call & Collect</a>
+            </div>
         </div>
     </main>
 
