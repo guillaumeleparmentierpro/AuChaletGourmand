@@ -5,6 +5,9 @@
 
 const translations = {
     'fr': {
+        // Nouveauté
+        'mod-vending-title': 'Distributeur libre-service',
+'mod-vending-note': 'Accessible 24h/24 et 7j/7 devant la boutique !',
         // Navigation
         'nav-home': 'Accueil',
         'nav-products': 'Nos Rayons',
@@ -118,6 +121,9 @@ const translations = {
         'footer-creation': 'Création web :'
     },
     'en': {
+              // Nouveauté
+        'mod-vending-title': 'Self-Service Vending Machine',
+'mod-vending-note': 'Accessible 24/7 right outside the shop!',
         // Navigation
         'nav-home': 'Home',
         'nav-products': 'Our Sections',
