@@ -12,6 +12,11 @@ const menuDuJour = {
             prix: "8.50 €" 
         },
         { 
+            nom: "test", 
+            desc: "au test", 
+            prix: "5.50 €" 
+        },
+        { 
             nom: "Rillettes aux deux Saumons", 
             desc: "Recette artisanale d'Anne-Laure", 
             prix: "7.00 €" 
