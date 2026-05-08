@@ -250,31 +250,13 @@
         <h1 class="section-titre"><span data-i18n="menu-title-our">Notre</span> <span data-i18n="menu-title-daily">Menu du Jour</span></h1>
         
         <div class="menu-card reveal">
-            <p class="menu-date" data-i18n="menu-date">Aujourd'hui au Chalet Gourmand</p>
+            <p class="menu-date" id="affichage-date"></p>
             
             <h2 class="menu-section-title" data-i18n="menu-starters">Les Entrées</h2>
-            <div class="menu-item">
-                <div class="menu-item-name" data-i18n="menu-item-1-name">Soupe de Poissons Maison</div>
-                <div class="menu-item-desc" data-i18n="menu-item-1-desc">Accompagnée de sa rouille, emmental râpé et de croûtons</div>
-                <div class="menu-item-price">8.50 €</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name" data-i18n="menu-item-2-name">Rillettes aux deux Saumons</div>
-                <div class="menu-item-desc" data-i18n="menu-item-2-desc">Recette artisanale d'Anne-Laure</div>
-                <div class="menu-item-price">7.00 €</div>
-            </div>
+            <div id="conteneur-entrees"></div>
             
             <h2 class="menu-section-title" data-i18n="menu-mains">Les Plats Préparés</h2>
-            <div class="menu-item">
-                <div class="menu-item-name" data-i18n="menu-item-3-name">Choucroute de la Mer</div>
-                <div class="menu-item-desc" data-i18n="menu-item-3-desc">Chou au vin blanc, saumon, cabillaud, haddock fumé et crevettes</div>
-                <div class="menu-item-price">18.50 €</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name" data-i18n="menu-item-4-name">Bouchée à la Reine aux Fruits de Mer</div>
-                <div class="menu-item-desc" data-i18n="menu-item-4-desc">Saint-Jacques, crevettes et moules dans un feuilleté pur beurre</div>
-                <div class="menu-item-price">14.00 €</div>
-            </div>
+            <div id="conteneur-plats"></div>
 
             <a href="call-and-collect.html" class="btn-reservation" data-i18n="menu-btn-reserve">☎︎ Réserver (Call & Collect)</a>
         </div>
@@ -284,10 +266,41 @@
         <p>© 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> <a href="https://cotentinwebstudio.fr/index.html" target="_blank" style="color: var(--rouge-chalet); text-decoration: none; font-weight: bold;">Cotentin Web Studio</a></p>
     </footer>
 
+    <script src="menu-data.js"></script>
     <script src="lang.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Script pour l'animation au défilement
+            // --- GÉNÉRATION DYNAMIQUE DU MENU ---
+            if (typeof menuDuJour !== 'undefined') {
+                // 1. Afficher la date
+                document.getElementById('affichage-date').innerText = menuDuJour.date;
+
+                // 2. Générer les entrées
+                const conteneurEntrees = document.getElementById('conteneur-entrees');
+                menuDuJour.entrees.forEach(entree => {
+                    conteneurEntrees.innerHTML += `
+                        <div class="menu-item">
+                            <div class="menu-item-name">${entree.nom}</div>
+                            <div class="menu-item-desc">${entree.desc}</div>
+                            <div class="menu-item-price">${entree.prix}</div>
+                        </div>
+                    `;
+                });
+
+                // 3. Générer les plats
+                const conteneurPlats = document.getElementById('conteneur-plats');
+                menuDuJour.plats.forEach(plat => {
+                    conteneurPlats.innerHTML += `
+                        <div class="menu-item">
+                            <div class="menu-item-name">${plat.nom}</div>
+                            <div class="menu-item-desc">${plat.desc}</div>
+                            <div class="menu-item-price">${plat.prix}</div>
+                        </div>
+                    `;
+                });
+            }
+
+            // --- ANIMATION AU DÉFILEMENT (REVEAL) ---
             const reveals = document.querySelectorAll('.reveal');
             
             const revealOptions = {
