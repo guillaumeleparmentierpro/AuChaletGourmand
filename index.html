@@ -30,10 +30,10 @@
             background-color: var(--blanc-creme);
             color: var(--texte-sombre);
             line-height: 1.6;
-            overflow-x: hidden; /* Empêche le scroll horizontal accidentel lié aux animations */
+            overflow-x: hidden;
         }
 
-        /* --- EN-TÊTE (HEADER) AVEC DRAPEAUX --- */
+        /* --- EN-TÊTE (HEADER) --- */
         header {
             background-color: var(--gris-anthracite);
             padding: 15px 20px;
@@ -61,7 +61,6 @@
             transform: scale(1.03);
         }
 
-        /* Positionnement des drapeaux à droite du logo */
         .header-lang-switcher {
             position: absolute;
             right: 20px;
@@ -81,7 +80,7 @@
 
         .emoji-flag:hover {
             transform: scale(1.2);
-            color: var(--rouge-chalet); /* Devient rouge au survol */
+            color: var(--rouge-chalet);
         }
 
         /* --- MENU DE NAVIGATION --- */
@@ -136,7 +135,6 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
-        /* --- BANDEAU ARRIVAGE --- */
         .arrivage-banner {
             margin-bottom: 25px; 
             background-color: rgba(255, 255, 255, 0.15);
@@ -169,7 +167,6 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
         }
 
-        /* --- BOUTONS HERO --- */
         .btn {
             display: inline-block;
             background-color: var(--rouge-chalet);
@@ -208,9 +205,14 @@
             transform: scale(1.03);
         }
 
-        /* --- SECTIONS --- */
+        /* --- SECTIONS ET CORRECTION DU SCROLL --- */
         .section-padding {
             padding: 50px 20px;
+        }
+
+        /* On ajoute la marge pour compenser le header collant */
+        #produits, #contact {
+            scroll-margin-top: 170px;
         }
 
         .section-titre {
@@ -227,14 +229,14 @@
 
         /* --- ANIMATION REVEAL ON SCROLL --- */
         .reveal {
-            opacity: 0; /* Caché au départ */
-            transform: translateY(50px); /* Décalé de 50px vers le bas */
-            transition: all 0.8s ease-out; /* Durée de l'animation */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
         }
 
         .reveal.active {
-            opacity: 1; /* Devient visible */
-            transform: translateY(0); /* Reprend sa place normale */
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- GRILLE PRODUITS --- */
@@ -317,8 +319,9 @@
             flex: 1;
         }
 
+        /* Marge spécifique pour l'ancre du distributeur */
         h4#distributeur {
-            scroll-margin-top: 120px;
+            scroll-margin-top: 180px;
         }
 
         .contact-info h4 {
@@ -366,10 +369,20 @@
             margin-top: 10px;
             width: 100%;
             text-align: center;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, transform 0.2s;
         }
 
         .btn-contact:hover {
+            background-color: var(--rouge-chalet);
+            transform: scale(1.02);
+        }
+
+        /* Style spécifique pour le bouton Call and Collect vert */
+        .btn-call-collect {
+            background-color: var(--vert-ouvert);
+        }
+        
+        .btn-call-collect:hover {
             background-color: var(--rouge-chalet);
         }
 
@@ -456,7 +469,7 @@
     <nav>
         <a href="#produits" data-i18n="nav-products">Nos Rayons</a>
         <a href="call-and-collect.html" data-i18n="nav-click">Call & Collect</a>
-        <a href="AuChaletGourmand.pdf" target="_blank" data-i18n="nav-menu">Menu du Jour</a>
+        <a href="menu-du-jour.html" data-i18n="nav-menu">Menu du Jour</a>
         <a href="#contact" data-i18n="nav-contact">Contact</a>
         <a href="a-propos.html" data-i18n="nav-about">À Propos</a>
     </nav>
@@ -584,10 +597,10 @@
             </div>
             
             <div class="contact-info reveal">
-                <h4 id="distributeur" data-i18n="mod-vending-title">Le Distributeur 24/7</h4>
+                <h4 id="distributeur" data-i18n="mod-vending-title">Distributeur libre-service</h4>
                 
                 <div class="note-pratique" data-i18n="mod-vending-note">
-                    Accessible en libre-service 24h/24 et 7j/7 devant la boutique !
+                    Accessible 24h/24 et 7j/7 devant la boutique !
                 </div>
 
                 <h5 data-i18n="mod-vending-content-title" style="color: var(--gris-anthracite); margin-bottom: 10px; font-size: 15px;">Ce que vous y trouverez :</h5>
@@ -603,6 +616,8 @@
                     <div class="badge-paiement">💶 <span data-i18n="pay-cash">Espèces (Boutique uniquement)</span></div>
                     <div class="badge-paiement">🎟️ <span data-i18n="pay-ticket">Tickets Restaurant (Boutique uniquement)</span></div>
                 </div>
+
+                <a href="call-and-collect.html" class="btn-contact btn-call-collect" style="margin-top: 25px;">🛍️ Découvrir le Call & Collect</a>
             </div>
 
         </div>
@@ -632,19 +647,18 @@
                 bandeau.style.display = 'inline-flex';
             }
 
-            // Script pour l'animation au défilement (Intersection Observer)
+            // Script pour l'animation au défilement
             const reveals = document.querySelectorAll('.reveal');
             
             const revealOptions = {
-                threshold: 0.1, // L'animation se déclenche quand 10% de l'élément est visible à l'écran
-                rootMargin: "0px 0px -50px 0px" // Permet de déclencher l'effet un peu avant le bord de l'écran
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
             };
 
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Optionnel : on arrête d'observer une fois l'animation jouée
                         observer.unobserve(entry.target); 
                     }
                 });
