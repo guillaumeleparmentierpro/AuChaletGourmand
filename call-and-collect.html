@@ -29,9 +29,10 @@
             background-color: var(--blanc-creme);
             color: var(--texte-sombre);
             line-height: 1.6;
+            overflow-x: hidden; /* Empêche le scroll horizontal avec les animations */
         }
 
-        /* --- EN-TÊTE ET MENU (IDENTIQUES À L'ACCUEIL) --- */
+        /* --- EN-TÊTE ET MENU --- */
         header {
             background-color: var(--gris-anthracite);
             padding: 15px 20px;
@@ -106,7 +107,6 @@
             color: var(--rouge-chalet);
         }
 
-        /* Lien actif dans le menu */
         nav a.active {
             color: var(--rouge-chalet);
             border-bottom: 2px solid var(--rouge-chalet);
@@ -146,7 +146,19 @@
             color: var(--rouge-chalet);
         }
 
-        /* --- COMMENT ÇA MARCHE (ÉTAPES HYBRIDES) --- */
+        /* --- ANIMATION REVEAL ON SCROLL --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- COMMENT ÇA MARCHE --- */
         .etapes-container {
             display: flex;
             flex-direction: column;
@@ -195,6 +207,12 @@
             border: 1px solid #eee;
             display: flex;
             flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .pack-carte:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .pack-img {
@@ -313,17 +331,17 @@
         <h2 class="section-titre"><span data-i18n="cc-how">Comment ça marche ?</span></h2>
         
         <div class="etapes-container">
-            <div class="etape-box">
+            <div class="etape-box reveal">
                 <div class="etape-icon">📱</div>
                 <h3 data-i18n="step-1-title">1. Je choisis</h3>
                 <p data-i18n="step-1-desc">Sélectionnez un de nos packs exclusifs détaillés ci-dessous.</p>
             </div>
-            <div class="etape-box">
+            <div class="etape-box reveal">
                 <div class="etape-icon">☎︎</div>
                 <h3 data-i18n="step-2-title">2. Je réserve & je paie</h3>
                 <p data-i18n="step-2-desc">Appelez-nous pour vérifier nos stocks du jour. Une fois validé, vous recevrez un lien de paiement sécurisé par SMS pour bloquer votre réservation.</p>
             </div>
-            <div class="etape-box">
+            <div class="etape-box reveal">
                 <div class="etape-icon">🧊</div>
                 <h3 data-i18n="step-3-title">3. Je retire 24/7</h3>
                 <p data-i18n="step-3-desc">Récupérez votre commande fraîchement préparée dans votre casier réservé au distributeur automatique, à l'heure qui vous convient !</p>
@@ -333,7 +351,7 @@
         <h2 class="section-titre"><span data-i18n="cc-packs-our">Nos Packs</span> <span data-i18n="cc-packs-exclusive">Exclusifs</span></h2>
 
         <div class="packs-grid">
-            <div class="pack-carte">
+            <div class="pack-carte reveal">
                 <div class="pack-img">🌅</div>
                 <div class="pack-info">
                     <h3 data-i18n="pack-apero-title">Pack "Apéro Plage" - 35 €</h3>
@@ -346,7 +364,7 @@
                 </div>
             </div>
 
-            <div class="pack-carte">
+            <div class="pack-carte reveal">
                 <div class="pack-img">🏡</div>
                 <div class="pack-info">
                     <h3 data-i18n="pack-gite-title">Pack "Arrivée au Gîte" - 45 €</h3>
@@ -360,7 +378,7 @@
             </div>
         </div>
 
-        <div class="cta-commande">
+        <div class="cta-commande reveal">
             <h2 data-i18n="cta-title">Pour vérifier les disponibilités du jour</h2>
             <p data-i18n="cta-desc">Appelez-nous directement ! Nous vous conseillerons sur les meilleurs arrivages pour vos plateaux.</p>
             <a href="tel:0233046140" class="btn-call"><span style="vertical-align: middle;">☎︎</span> <span data-i18n="cta-btn">Réserver au 02 33 04 61 40</span></a>
@@ -373,5 +391,30 @@
     </footer>
 
     <script src="lang.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Script pour l'animation au défilement (Intersection Observer)
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.1, // L'animation se déclenche quand 10% de l'élément est visible à l'écran
+                rootMargin: "0px 0px -50px 0px" // Déclenche l'effet un peu avant le bord de l'écran
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optionnel : on arrête d'observer une fois l'animation jouée
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
 </body>
 </html>
