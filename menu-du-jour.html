@@ -196,12 +196,19 @@
             margin-top: 5px;
         }
 
+        /* --- SÉPARATION AVANT LES BOUTONS --- */
+        .menu-separator {
+            margin: 40px auto 30px;
+            border: none;
+            border-top: 1px solid #dcdcdc;
+            width: 70%;
+        }
+
         /* --- BOUTONS D'ACTION --- */
         .action-buttons {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-top: 40px;
             justify-content: center;
         }
 
@@ -210,14 +217,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 15px 30px;
+            padding: 15px 20px;
             border-radius: 30px;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-            background-color: var(--rouge-chalet);
+            background-color: var(--rouge-chalet); /* Les deux boutons en rouge */
             color: white !important;
-            min-height: 75px; /* Aligne parfaitement les hauteurs */
+            min-height: 80px; /* Assure une belle hauteur */
         }
 
         .btn-action:hover {
@@ -225,20 +232,23 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
+        /* Lignes du bouton téléphone */
         .btn-tel-line1 {
-            font-size: 14px;
+            font-size: 16px; /* Police agrandie */
             font-weight: normal;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
         .btn-tel-line2 {
-            font-size: 20px;
+            font-size: 24px; /* Numéro bien grand */
             font-weight: bold;
             line-height: 1;
+            letter-spacing: 0.5px;
         }
 
+        /* Ligne du bouton Call & Collect */
         .btn-cc-text {
-            font-size: 18px;
+            font-size: 22px; /* Police agrandie pour être en harmonie avec le numéro */
             font-weight: bold;
         }
 
@@ -249,7 +259,7 @@
                 gap: 20px;
             }
             .btn-action {
-                flex: 1; /* Les boutons prennent la même largeur */
+                flex: 1; 
                 max-width: 300px;
             }
         }
@@ -298,9 +308,12 @@
             <h2 class="menu-section-title" data-i18n="menu-mains">Les Plats Préparés</h2>
             <div id="conteneur-plats"></div>
 
+            <hr class="menu-separator">
+
             <div class="action-buttons">
                 <a href="tel:0233046140" class="btn-action">
-                    <span class="btn-tel-line1">☎︎ 02 33 04 61 40</span>
+                    <span class="btn-tel-line1" data-i18n="menu-btn-call-l1">☎︎ Appeler au :</span>
+                    <span class="btn-tel-line2">02 33 04 61 40</span>
                 </a>
             </div>
         </div>
