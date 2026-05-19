@@ -3,7 +3,7 @@
 // Ne supprimez pas les virgules à la fin des lignes.
 
 const menuDuJour = {
-    date: "Aujourd'hui au Chalet Gourmand",
+    date: "Au choix",
     
     entrees: [
         { 
