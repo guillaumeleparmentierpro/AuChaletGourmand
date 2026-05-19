@@ -340,7 +340,7 @@
         .horaires-liste li {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Centrage vertical pour les marchés */
+            align-items: center; 
             padding: 10px 0;
             border-bottom: 1px solid #f0f0f0;
             font-size: 14px;
@@ -359,12 +359,13 @@
             border-radius: 4px;
         }
 
-        /* --- ICÔNES UPLOADÉES --- */
+        /* --- ICÔNES SVG --- */
         .icon-inline {
             width: 20px;
-            height: auto;
+            height: 20px;
             vertical-align: middle;
             margin-right: 8px;
+            flex-shrink: 0;
         }
 
         /* --- BOUTONS DE CONTACT --- */
@@ -574,15 +575,18 @@
                 </ul>
 
                 <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps">
-                    <img src="icon-location.png" alt="Adresse" class="icon-inline"> Itinéraire Google Maps
+                    <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 
+                    Itinéraire Google Maps
                 </a>
                 
                 <a href="tel:0233046140" class="btn-contact">
-                    <img src="icon-phone.png" alt="Téléphone" class="icon-inline"> 02 33 04 61 40
+                    <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 
+                    02 33 04 61 40
                 </a>
                 
                 <a href="mailto:chaletgourmand@orange.fr" class="btn-contact">
-                    <img src="icon-mail.png" alt="Email" class="icon-inline"> chaletgourmand@orange.fr
+                    <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> 
+                    chaletgourmand@orange.fr
                 </a>
                 
                 <div class="note-pratique" style="margin-top: 15px; border-color: var(--rouge-chalet);">
@@ -601,14 +605,14 @@
                     <li>
                         <div>
                             <strong data-i18n="market-loc-1">Flamanville</strong><br>
-                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-1">Fruits, légumes, poisson</span>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-1">Poisson, fruits & légumes</span>
                         </div>
                         <span data-i18n="market-time-1">Mercredi</span>
                     </li>
                     <li>
                         <div>
                             <strong data-i18n="market-loc-2">Carteret</strong><br>
-                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-2">Fruits & légumes</span>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-2">Poisson, fruits & légumes</span>
                         </div>
                         <span data-i18n="market-time-2">Jeudi</span>
                     </li>
@@ -647,16 +651,18 @@
                 
                 <div class="paiement-badges">
                     <div class="badge-paiement">
-                        <img src="icon-cb.png" alt="Carte" class="icon-inline">
+                        <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                         <span data-i18n="pay-card">Carte Bancaire (Boutique & Distributeur)</span>
                     </div>
+                    
                     <div class="badge-paiement">
-                        <img src="icon-cash.png" alt="Espèces" class="icon-inline">
+                        <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
                         <span data-i18n="pay-cash">Espèces (Boutique uniquement)</span>
                     </div>
+                    
                     <div class="badge-paiement">
-                        <img src="icon-ticket.png" alt="Ticket" class="icon-inline">
-                        <span data-i18n="pay-ticket">Tickets Restaurant (Boutique uniquement)</span>
+                        <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path><path d="M12 5v14"></path><path d="M8 12h.01"></path><path d="M16 12h.01"></path></svg>
+                        <span data-i18n="pay-ticket">Cartes & Tickets Restaurant (Boutique uniquement)</span>
                     </div>
                 </div>
 
