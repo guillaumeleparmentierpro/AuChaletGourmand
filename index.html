@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <title>Au Chalet Gourmand - Terre & Mer</title>
+    
+    <title>Au Chalet Gourmand | Poissonnerie & Épicerie fine à Barneville-Carteret</title>
+    <meta name="description" content="Découvrez Au Chalet Gourmand à Barneville-Carteret (50270). Poissons frais, fruits de mer, fromagerie, épicerie fine et distributeur automatique 24h/24 et 7j/7.">
+    <meta name="keywords" content="poissonnerie, Barneville-Carteret, épicerie fine, distributeur fruits de mer 24/7, traiteur, fromagerie, produits locaux, Manche, Cotentin">
     <style>
         /* --- VARIABLES DE COULEURS --- */
         :root {
@@ -210,7 +213,6 @@
             padding: 50px 20px;
         }
 
-        /* On ajoute la marge pour compenser le header collant */
         #produits, #contact {
             scroll-margin-top: 170px;
         }
@@ -319,7 +321,6 @@
             flex: 1;
         }
 
-        /* Marge spécifique pour l'ancre du distributeur */
         h4#distributeur {
             scroll-margin-top: 180px;
         }
@@ -339,7 +340,8 @@
         .horaires-liste li {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            align-items: center; /* Centrage vertical pour les marchés */
+            padding: 10px 0;
             border-bottom: 1px solid #f0f0f0;
             font-size: 14px;
         }
@@ -357,9 +359,19 @@
             border-radius: 4px;
         }
 
+        /* --- ICÔNES UPLOADÉES --- */
+        .icon-inline {
+            width: 20px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
         /* --- BOUTONS DE CONTACT --- */
         .btn-contact {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: var(--gris-anthracite);
             color: white !important;
             padding: 10px 20px;
@@ -377,7 +389,6 @@
             transform: scale(1.02);
         }
 
-        /* Style spécifique pour le bouton Call and Collect vert */
         .btn-call-collect {
             background-color: var(--vert-ouvert);
         }
@@ -458,7 +469,7 @@
 
     <header>
         <a href="index.html" class="logo-link">
-            <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
+            <img src="Logo.jpg" alt="Logo Au Chalet Gourmand, poissonnerie et épicerie fine à Barneville-Carteret" class="logo-img">
         </a>
         <div class="header-lang-switcher">
             <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
@@ -493,7 +504,7 @@
         <div class="grid-produits">
             <a href="maree.html" class="lien-carte">
                 <div class="carte-produit reveal">
-                    <img src="photo-maree.png" alt="La Marée" class="carte-img">
+                    <img src="photo-maree.png" alt="Rayon poissonnerie et fruits de mer à Barneville-Carteret" class="carte-img">
                     <div class="carte-texte">
                         <h3 data-i18n="cat-maree">La Marée & Traiteur</h3>
                         <p data-i18n="desc-maree">Poissons côtiers, huîtres de Denneville, homard bleu, coquillages et plats préparés marins.</p>
@@ -502,7 +513,7 @@
             </a>
             <a href="primeur.html" class="lien-carte">
                 <div class="carte-produit reveal">
-                    <img src="photo-primeur.png" alt="Le Primeur" class="carte-img">
+                    <img src="photo-primeur.png" alt="Fruits et légumes frais de saison de Surtainville" class="carte-img">
                     <div class="carte-texte">
                         <h3 data-i18n="cat-primeur">Le Primeur</h3>
                         <p data-i18n="desc-primeur">Fruits de saison et légumes frais cultivés sur nos terres à Surtainville.</p>
@@ -511,7 +522,7 @@
             </a>
             <a href="epicerie.html" class="lien-carte">
                 <div class="carte-produit reveal">
-                    <img src="photo-fromagerie.png" alt="Épicerie et Crèmerie" class="carte-img">
+                    <img src="photo-fromagerie.png" alt="Épicerie fine, produits normands et fromagerie" class="carte-img">
                     <div class="carte-texte">
                         <h3 data-i18n="cat-epicerie">Épicerie & Crèmerie</h3>
                         <p data-i18n="desc-epicerie">Fromagerie, produits du terroir, vins et délices d'épicerie fine.</p>
@@ -520,7 +531,7 @@
             </a>
             <a href="compositions.html" class="lien-carte">
                 <div class="carte-produit reveal">
-                    <img src="photo-compositions.png" alt="Compositions Sur-Mesure" class="carte-img">
+                    <img src="photo-compositions.png" alt="Plateaux de fruits de mer sur-mesure à Barneville-Carteret" class="carte-img">
                     <div class="carte-texte">
                         <h3 data-i18n="cat-compo">Compositions Sur-Mesure</h3>
                         <p data-i18n="desc-compo">Plateaux de fruits de mer, corbeilles de fruits et paniers garnis personnalisés.</p>
@@ -562,11 +573,17 @@
                     <li><span data-i18n="day-7">Dimanche</span> <span>08:30 – 13:00</span></li>
                 </ul>
 
-                <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps"><span style="color: var(--rouge-chalet);">📍</span> Itinéraire Google Maps</a>
+                <a href="https://maps.app.goo.gl/F9pjkMyGoYSduwvu8" target="_blank" class="btn-contact" data-i18n="btn-maps">
+                    <img src="icon-location.png" alt="Adresse" class="icon-inline"> Itinéraire Google Maps
+                </a>
                 
-                <a href="tel:0233046140" class="btn-contact"><span style="color: var(--rouge-chalet); font-size: 18px; vertical-align: middle;">☎︎</span> 02 33 04 61 40</a>
+                <a href="tel:0233046140" class="btn-contact">
+                    <img src="icon-phone.png" alt="Téléphone" class="icon-inline"> 02 33 04 61 40
+                </a>
                 
-                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact"><span style="color: var(--rouge-chalet);">✉️</span> chaletgourmand@orange.fr</a>
+                <a href="mailto:chaletgourmand@orange.fr" class="btn-contact">
+                    <img src="icon-mail.png" alt="Email" class="icon-inline"> chaletgourmand@orange.fr
+                </a>
                 
                 <div class="note-pratique" style="margin-top: 15px; border-color: var(--rouge-chalet);">
                     <strong data-i18n="relais-title">Point Relais :</strong> <span data-i18n="relais-desc">Retrait et dépôt de colis Pick-up & UPS.</span>
@@ -582,16 +599,32 @@
 
                 <ul class="horaires-liste">
                     <li>
-                        <strong data-i18n="market-loc-1">Carteret</strong> 
-                        <span data-i18n="market-time-1">Jeudi</span>
+                        <div>
+                            <strong data-i18n="market-loc-1">Flamanville</strong><br>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-1">Fruits, légumes, poisson</span>
+                        </div>
+                        <span data-i18n="market-time-1">Mercredi</span>
                     </li>
                     <li>
-                        <strong data-i18n="market-loc-2">Les Pieux</strong> 
-                        <span data-i18n="market-time-2">Vendredi</span>
+                        <div>
+                            <strong data-i18n="market-loc-2">Carteret</strong><br>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-2">Fruits & légumes</span>
+                        </div>
+                        <span data-i18n="market-time-2">Jeudi</span>
                     </li>
                     <li>
-                        <strong data-i18n="market-loc-3">Beaumont-Hague</strong> 
+                        <div>
+                            <strong data-i18n="market-loc-3">Beaumont-Hague</strong><br>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-3">Poisson, fruits & légumes</span>
+                        </div>
                         <span data-i18n="market-time-3">Samedi</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong data-i18n="market-loc-4">Barneville</strong><br>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-4">Fruits & légumes</span>
+                        </div>
+                        <span data-i18n="market-time-4">Samedi</span>
                     </li>
                 </ul>
             </div>
@@ -611,10 +644,20 @@
                 </ul>
 
                 <h5 data-i18n="info-pay" style="color: var(--gris-anthracite); margin-top: 20px; margin-bottom: 10px; font-size: 15px;">💳 Moyens de paiement :</h5>
+                
                 <div class="paiement-badges">
-                    <div class="badge-paiement">💳 <span data-i18n="pay-card">Carte Bancaire (Boutique & Distributeur)</span></div>
-                    <div class="badge-paiement">💶 <span data-i18n="pay-cash">Espèces (Boutique uniquement)</span></div>
-                    <div class="badge-paiement">🎟️ <span data-i18n="pay-ticket">Tickets Restaurant (Boutique uniquement)</span></div>
+                    <div class="badge-paiement">
+                        <img src="icon-cb.png" alt="Carte" class="icon-inline">
+                        <span data-i18n="pay-card">Carte Bancaire (Boutique & Distributeur)</span>
+                    </div>
+                    <div class="badge-paiement">
+                        <img src="icon-cash.png" alt="Espèces" class="icon-inline">
+                        <span data-i18n="pay-cash">Espèces (Boutique uniquement)</span>
+                    </div>
+                    <div class="badge-paiement">
+                        <img src="icon-ticket.png" alt="Ticket" class="icon-inline">
+                        <span data-i18n="pay-ticket">Tickets Restaurant (Boutique uniquement)</span>
+                    </div>
                 </div>
 
                 <a href="call-and-collect.html" class="btn-contact btn-call-collect" style="margin-top: 25px;">Call & Collect</a>
@@ -626,8 +669,8 @@
     <div class="social-banner">
         <p data-i18n="social-follow">Suivez-nous sur nos réseaux</p>
         <div class="social-icons">
-            <a href="https://www.facebook.com/auchaletgourmand50/" target="_blank"><img src="icon-facebook.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank"><img src="icon-instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/auchaletgourmand50/" target="_blank"><img src="icon-facebook.png" alt="Rejoignez Au Chalet Gourmand sur Facebook"></a>
+            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank"><img src="icon-instagram.png" alt="Suivez Au Chalet Gourmand sur Instagram"></a>
         </div>
     </div>
 
