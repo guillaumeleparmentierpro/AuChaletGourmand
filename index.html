@@ -78,7 +78,7 @@
             display: flex;
             gap: 12px;
             user-select: none;
-            background-color: rgba(255, 255, 255, 0.12); /* Fond du mini-module */
+            background-color: rgba(255, 255, 255, 0.12);
             padding: 6px 12px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -89,7 +89,9 @@
             cursor: pointer;
             transition: all 0.3s ease;
             line-height: 1;
-            opacity: 0.4; /* Grisé par défaut pour les langues inactives */
+            opacity: 0.5;
+            color: white; /* Indispensable pour l'affichage "FR" sur Windows */
+            font-weight: bold;
             filter: grayscale(100%);
         }
 
@@ -102,6 +104,7 @@
         .emoji-flag.active {
             opacity: 1;
             filter: grayscale(0%);
+            color: var(--rouge-chalet); /* Sur Windows, la langue sélectionnée s'affichera en rouge */
             transform: scale(1.15);
         }
 
@@ -409,7 +412,6 @@
             transform: scale(1.02);
         }
 
-        /* Change la couleur des SVG dans les boutons d'infos pratiques */
         .btn-contact .icon-inline {
             color: var(--rouge-chalet); 
         }
@@ -422,7 +424,6 @@
             background-color: var(--rouge-chalet);
         }
 
-        /* On s'assure que le bouton Call&Collect ne modifie pas sa propre icône si on en ajoutait une un jour */
         .btn-call-collect .icon-inline {
             color: white;
         }
@@ -641,23 +642,30 @@
                     <li>
                         <div>
                             <strong data-i18n="market-loc-2">Carteret</strong><br>
-                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-2">Poisson, fruits & légumes</span>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-2">Fruits & légumes</span>
                         </div>
                         <span data-i18n="market-time-2">Jeudi</span>
                     </li>
                     <li>
                         <div>
-                            <strong data-i18n="market-loc-3">Beaumont-Hague</strong><br>
-                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-3">Poisson, fruits & légumes</span>
+                            <strong data-i18n="market-loc-3">Les Pieux</strong><br>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-3">Fruits & légumes</span>
                         </div>
-                        <span data-i18n="market-time-3">Samedi</span>
+                        <span data-i18n="market-time-3">Vendredi</span>
                     </li>
                     <li>
                         <div>
-                            <strong data-i18n="market-loc-4">Barneville</strong><br>
-                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-4">Fruits & légumes</span>
+                            <strong data-i18n="market-loc-4">Beaumont-Hague</strong><br>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-4">Poisson, fruits & légumes</span>
                         </div>
                         <span data-i18n="market-time-4">Samedi</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong data-i18n="market-loc-5">Barneville</strong><br>
+                            <span style="font-size: 13px; color: var(--gris-doux);" data-i18n="market-prod-5">Fruits & légumes</span>
+                        </div>
+                        <span data-i18n="market-time-5">Samedi</span>
                     </li>
                 </ul>
             </div>
