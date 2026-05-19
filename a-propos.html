@@ -29,7 +29,7 @@
             line-height: 1.6;
         }
 
-        /* --- EN-TÊTE (HEADER) IDENTIQUE À L'ACCUEIL --- */
+        /* --- EN-TÊTE (HEADER) --- */
         header {
             background-color: var(--gris-anthracite);
             padding: 15px 20px;
@@ -56,28 +56,6 @@
 
         .logo-img:hover {
             transform: scale(1.03);
-        }
-
-        .lang-switcher-header {
-            position: absolute;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            user-select: none;
-        }
-
-        .emoji-flag {
-            font-size: 22px;
-            cursor: pointer;
-            transition: transform 0.2s, color 0.2s;
-            line-height: 1;
-            color: white; 
-            font-weight: bold;
-        }
-
-        .emoji-flag:hover {
-            transform: scale(1.2);
-            color: var(--rouge-chalet);
         }
 
         /* --- MENU DE NAVIGATION --- */
@@ -151,6 +129,19 @@
             text-align: justify;
         }
 
+        /* --- LECTEUR VIDÉO --- */
+        .video-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            outline: none;
+        }
+
         /* --- FOOTER --- */
         footer {
             background-color: var(--gris-anthracite);
@@ -169,10 +160,6 @@
         <a href="index.html" class="logo-link">
             <img src="Logo.jpg" alt="Logo Au Chalet Gourmand" class="logo-img">
         </a>
-        <div class="lang-switcher-header">
-            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
-            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
-        </div>
     </header>
 
     <nav>
@@ -198,6 +185,13 @@
             <p data-i18n="about-p3">Que vous souhaitiez commander une choucroute de la mer, une paella, ou composer un repas complet, Anne-Laure et Vanessa mettent tout en œuvre pour vous conseiller avec le sourire et accompagner vos talents culinaires.</p>
 
             <p style="font-style: italic; text-align: center; margin-top: 30px;" data-i18n="about-quote">"La gourmandise est un art, le terroir est notre inspiration."</p>
+            
+            <div class="video-container">
+                <video id="promo-video" controls poster="Imgfondtitre.jpg">
+                    <source id="video-source" src="" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
         </div>
     </main>
 
@@ -206,5 +200,24 @@
     </footer>
 
     <script src="lang.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Logique de changement de vidéo selon la saison
+            const currentMonth = new Date().getMonth() + 1; // getMonth() renvoie 0-11, donc on ajoute 1 pour avoir 1-12
+            const videoSource = document.getElementById('video-source');
+            const videoElement = document.getElementById('promo-video');
+
+            // De Octobre (10) à Mars (3), c'est la vidéo d'hiver
+            if (currentMonth >= 10 || currentMonth <= 3) {
+                videoSource.src = 'Présentation - Winter Is Coming.mp4';
+            } else {
+                // D'Avril (4) à Septembre (9), c'est la vidéo d'été/standard
+                videoSource.src = 'Final - Au Chalet Gourmand - V1 - Sound.mp4';
+            }
+
+            // On demande au lecteur de charger la bonne source
+            videoElement.load();
+        });
+    </script>
 </body>
 </html>
