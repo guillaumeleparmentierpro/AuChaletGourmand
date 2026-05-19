@@ -8,6 +8,13 @@
     <title>Au Chalet Gourmand | Poissonnerie & Épicerie fine à Barneville-Carteret</title>
     <meta name="description" content="Découvrez Au Chalet Gourmand à Barneville-Carteret (50270). Poissons frais, fruits de mer, fromagerie, épicerie fine et distributeur automatique 24h/24 et 7j/7.">
     <meta name="keywords" content="poissonnerie, Barneville-Carteret, épicerie fine, distributeur fruits de mer 24/7, traiteur, fromagerie, produits locaux, Manche, Cotentin">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico">
+
     <style>
         /* --- VARIABLES DE COULEURS --- */
         :root {
@@ -64,26 +71,38 @@
             transform: scale(1.03);
         }
 
+        /* --- MODULE CHOIX DE LANGUE --- */
         .header-lang-switcher {
             position: absolute;
             right: 20px;
             display: flex;
-            gap: 15px;
+            gap: 12px;
             user-select: none;
+            background-color: rgba(255, 255, 255, 0.12); /* Fond du mini-module */
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .emoji-flag {
             font-size: 22px;
             cursor: pointer;
-            transition: transform 0.2s, color 0.2s;
+            transition: all 0.3s ease;
             line-height: 1;
-            color: white; 
-            font-weight: bold;
+            opacity: 0.4; /* Grisé par défaut pour les langues inactives */
+            filter: grayscale(100%);
         }
 
         .emoji-flag:hover {
-            transform: scale(1.2);
-            color: var(--rouge-chalet);
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        /* Langue active mise en valeur */
+        .emoji-flag.active {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.15);
         }
 
         /* --- MENU DE NAVIGATION --- */
@@ -390,12 +409,22 @@
             transform: scale(1.02);
         }
 
+        /* Change la couleur des SVG dans les boutons d'infos pratiques */
+        .btn-contact .icon-inline {
+            color: var(--rouge-chalet); 
+        }
+
         .btn-call-collect {
             background-color: var(--vert-ouvert);
         }
         
         .btn-call-collect:hover {
             background-color: var(--rouge-chalet);
+        }
+
+        /* On s'assure que le bouton Call&Collect ne modifie pas sa propre icône si on en ajoutait une un jour */
+        .btn-call-collect .icon-inline {
+            color: white;
         }
 
         /* --- PAIEMENTS --- */
@@ -472,9 +501,9 @@
         <a href="index.html" class="logo-link">
             <img src="Logo.jpg" alt="Logo Au Chalet Gourmand, poissonnerie et épicerie fine à Barneville-Carteret" class="logo-img">
         </a>
-        <div class="header-lang-switcher">
-            <span class="emoji-flag" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
-            <span class="emoji-flag" onclick="setLanguage('en')" title="English">🇬🇧</span>
+        <div class="header-lang-switcher" id="lang-switcher-container">
+            <span class="emoji-flag active" id="flag-fr" onclick="setLanguage('fr')" title="Français">🇫🇷</span>
+            <span class="emoji-flag" id="flag-en" onclick="setLanguage('en')" title="English">🇬🇧</span>
         </div>
     </header>
 
