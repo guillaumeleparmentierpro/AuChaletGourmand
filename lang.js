@@ -63,17 +63,11 @@ const translations = {
         // Infos Pratiques - Les Marchés
         'mod-market-title': 'Nos Marchés',
         'mod-market-intro': 'Retrouvez nos fruits, légumes et produits frais chaque semaine sur les marchés de la région :',
-        'market-loc-1': 'Flamanville',
         'market-prod-1': 'Poisson, fruits & légumes',
         'market-time-1': 'Mercredi',
-        'market-loc-2': 'Carteret',
-        'market-prod-2': 'Poisson, fruits & légumes',
+        'market-prod-2': 'Fruits & légumes',
         'market-time-2': 'Jeudi',
-        'market-loc-3': 'Beaumont-Hague',
-        'market-prod-3': 'Poisson, fruits & légumes',
-        'market-time-3': 'Samedi',
-        'market-loc-4': 'Barneville',
-        'market-prod-4': 'Fruits & légumes',
+        'market-time-3': 'Vendredi',
         'market-time-4': 'Samedi',
 
         // Infos Pratiques - Le Distributeur
@@ -188,17 +182,11 @@ const translations = {
         // Infos Pratiques - Les Marchés
         'mod-market-title': 'Our Markets',
         'mod-market-intro': 'Find our fruits, vegetables, and fresh products every week at local markets:',
-        'market-loc-1': 'Flamanville',
         'market-prod-1': 'Fish, fruits & vegetables',
         'market-time-1': 'Wednesday',
-        'market-loc-2': 'Carteret',
-        'market-prod-2': 'Fish, fruits & vegetables',
+        'market-prod-2': 'Fruits & légumes',
         'market-time-2': 'Thursday',
-        'market-loc-3': 'Beaumont-Hague',
-        'market-prod-3': 'Fish, fruits & vegetables',
-        'market-time-3': 'Saturday',
-        'market-loc-4': 'Barneville',
-        'market-prod-4': 'Fruits & vegetables',
+        'market-time-3': 'Friday',
         'market-time-4': 'Saturday',
 
         // Infos Pratiques - Le Distributeur
