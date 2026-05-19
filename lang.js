@@ -8,10 +8,11 @@ const translations = {
         // Nouveauté
         'menu-title-our': 'Notre',
         'menu-title-daily': 'Menu du jour',
-                'menu-starters': 'Les Entrées',
+        'menu-starters': 'Les Entrées',
         'menu-mains': 'Les Plats Préparés',
         'mod-vending-title': 'Distributeur libre-service',
-'mod-vending-note': 'Accessible 24h/24 et 7j/7 devant la boutique !',
+        'mod-vending-note': 'Accessible 24h/24 et 7j/7 devant la boutique !',
+        
         // Navigation
         'nav-home': 'Accueil',
         'nav-products': 'Nos Rayons',
@@ -46,7 +47,7 @@ const translations = {
         // Infos Pratiques - Le Magasin
         'mod-shop-title': 'Le Magasin',
         'mod-shop-address': 'Adresse :',
-        'btn-maps': '📍 Itinéraire Google Maps',
+        'btn-maps': 'Itinéraire Google Maps',
         'relais-title': 'Point Relais :',
         'relais-desc': 'Retrait et dépôt de colis Pick-up & UPS.',
 
@@ -62,12 +63,18 @@ const translations = {
         // Infos Pratiques - Les Marchés
         'mod-market-title': 'Nos Marchés',
         'mod-market-intro': 'Retrouvez nos fruits, légumes et produits frais chaque semaine sur les marchés de la région :',
-        'market-loc-1': 'Carteret',
-        'market-time-1': 'Jeudi',
-        'market-loc-2': 'Les Pieux',
-        'market-time-2': 'Vendredi',
+        'market-loc-1': 'Flamanville',
+        'market-prod-1': 'Poisson, fruits & légumes',
+        'market-time-1': 'Mercredi',
+        'market-loc-2': 'Carteret',
+        'market-prod-2': 'Poisson, fruits & légumes',
+        'market-time-2': 'Jeudi',
         'market-loc-3': 'Beaumont-Hague',
+        'market-prod-3': 'Poisson, fruits & légumes',
         'market-time-3': 'Samedi',
+        'market-loc-4': 'Barneville',
+        'market-prod-4': 'Fruits & légumes',
+        'market-time-4': 'Samedi',
 
         // Infos Pratiques - Le Distributeur
         'mod-vending-content-title': 'Ce que vous y trouverez :',
@@ -79,7 +86,7 @@ const translations = {
         'info-pay': '💳 Moyens de paiement :',
         'pay-card': 'Carte Bancaire (Boutique & Distributeur)',
         'pay-cash': 'Espèces (Boutique uniquement)',
-        'pay-ticket': 'Tickets Restaurant (Boutique uniquement)',
+        'pay-ticket': 'Cartes & Tickets Restaurant (Boutique uniquement)',
 
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
@@ -123,13 +130,14 @@ const translations = {
         'footer-creation': 'Création web :'
     },
     'en': {
-              // Nouveauté
+        // Nouveauté
         'mod-vending-title': 'Self-Service Vending Machine',
-'mod-vending-note': 'Accessible 24/7 right outside the shop!',
-                'menu-title-our': 'Our',
+        'mod-vending-note': 'Accessible 24/7 right outside the shop!',
+        'menu-title-our': 'Our',
         'menu-title-daily': 'Daily Menu',
         'menu-starters': 'Starters',
         'menu-mains': 'Prepared Meals',
+        
         // Navigation
         'nav-home': 'Home',
         'nav-products': 'Our Sections',
@@ -164,7 +172,7 @@ const translations = {
         // Infos Pratiques - Le Magasin
         'mod-shop-title': 'The Shop',
         'mod-shop-address': 'Address:',
-        'btn-maps': '📍 Open in Google Maps',
+        'btn-maps': 'Open in Google Maps',
         'relais-title': 'Pickup Point:',
         'relais-desc': 'Pick-up and drop-off point for Pick-up & UPS parcels.',
 
@@ -180,12 +188,18 @@ const translations = {
         // Infos Pratiques - Les Marchés
         'mod-market-title': 'Our Markets',
         'mod-market-intro': 'Find our fruits, vegetables, and fresh products every week at local markets:',
-        'market-loc-1': 'Carteret',
-        'market-time-1': 'Thursday',
-        'market-loc-2': 'Les Pieux',
-        'market-time-2': 'Friday',
+        'market-loc-1': 'Flamanville',
+        'market-prod-1': 'Fish, fruits & vegetables',
+        'market-time-1': 'Wednesday',
+        'market-loc-2': 'Carteret',
+        'market-prod-2': 'Fish, fruits & vegetables',
+        'market-time-2': 'Thursday',
         'market-loc-3': 'Beaumont-Hague',
+        'market-prod-3': 'Fish, fruits & vegetables',
         'market-time-3': 'Saturday',
+        'market-loc-4': 'Barneville',
+        'market-prod-4': 'Fruits & vegetables',
+        'market-time-4': 'Saturday',
 
         // Infos Pratiques - Le Distributeur
         'mod-vending-content-title': 'What you\'ll find inside:',
@@ -197,7 +211,7 @@ const translations = {
         'info-pay': '💳 Payment Methods:',
         'pay-card': 'Credit Card (Shop & Vending Machine)',
         'pay-cash': 'Cash (Shop only)',
-        'pay-ticket': 'Restaurant Vouchers (Shop only)',
+        'pay-ticket': 'Cards & Restaurant Vouchers (Shop only)',
 
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
@@ -247,21 +261,37 @@ const translations = {
  * @param {string} lang - 'fr' ou 'en'
  */
 function setLanguage(lang) {
-    // On boucle sur tous les éléments ayant l'attribut data-i18n
+    // 1. On traduit tous les textes
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         
-        // Si la traduction existe pour cette clé
         if (translations[lang][key]) {
-            // Pour les éléments classiques (textes)
-            element.innerText = translations[lang][key];
+            // Attention : s'il y a des balises HTML (comme les <br> ou les <span>) on utilise innerHTML
+            // Sinon on garde innerText pour plus de sécurité
+            if (translations[lang][key].includes('<')) {
+                element.innerHTML = translations[lang][key];
+            } else {
+                element.innerText = translations[lang][key];
+            }
         }
     });
 
-    // On sauvegarde la préférence de langue dans le navigateur
+    // 2. On gère l'aspect visuel des drapeaux (la fameuse nouveauté)
+    // On retire la classe active de TOUS les drapeaux
+    document.querySelectorAll('.emoji-flag').forEach(flag => {
+        flag.classList.remove('active');
+    });
+    
+    // On ajoute la classe active UNIQUEMENT sur le drapeau cliqué
+    const activeFlag = document.getElementById(`flag-${lang}`);
+    if (activeFlag) {
+        activeFlag.classList.add('active');
+    }
+
+    // 3. On sauvegarde la préférence de langue
     localStorage.setItem('preferredLang', lang);
 
-    // On met à jour l'attribut lang du document pour le SEO
+    // 4. On met à jour l'attribut lang du document pour le SEO
     document.documentElement.lang = lang;
 }
 
