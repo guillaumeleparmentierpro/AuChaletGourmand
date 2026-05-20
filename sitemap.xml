@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.auchaletgourmand.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.auchaletgourmand.com/a-propos.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.auchaletgourmand.com/menu-du-jour.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.auchaletgourmand.com/call-and-collect.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.auchaletgourmand.com/maree.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.auchaletgourmand.com/primeur.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.auchaletgourmand.com/epicerie.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.auchaletgourmand.com/compositions.html</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>
