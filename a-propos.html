@@ -110,13 +110,6 @@
             color: var(--rouge-chalet);
         }
 
-        .about-img {
-            width: 100%;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
         .story-text h2 {
             color: var(--rouge-chalet);
             margin: 25px 0 15px;
@@ -142,14 +135,32 @@
             outline: none;
         }
 
-        /* --- FOOTER --- */
+        /* --- SOCIAL & FOOTER --- */
+        .social-banner {
+            background-color: var(--gris-clair);
+            padding: 25px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+        }
+
         footer {
             background-color: var(--gris-anthracite);
             color: white;
             text-align: center;
             padding: 25px 20px;
             font-size: 13px;
-            margin-top: 40px;
             border-top: 4px solid var(--rouge-chalet);
         }
     </style>
@@ -173,8 +184,6 @@
     <main class="content-padding">
         <h1 class="section-titre"><span data-i18n="about-title-our">Notre</span> <span data-i18n="about-title-story">Histoire</span></h1>
         
-        <img src="Imgfondtitre.jpg" alt="La boutique" class="about-img">
-
         <div class="story-text">
             <p data-i18n="about-p1">Ouverte depuis 2015 par Anne-Laure Gaumain au cœur de Barneville-Carteret, la boutique-poissonnerie <strong>Au Chalet Gourmand</strong> est née d'une passion profonde pour les richesses culinaires de notre belle Normandie.</p>
             
@@ -194,6 +203,14 @@
             </div>
         </div>
     </main>
+
+    <div class="social-banner">
+        <p data-i18n="social-follow">Suivez-nous sur nos réseaux</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/auchaletgourmand50/" target="_blank"><img src="icon-facebook.png" alt="Rejoignez Au Chalet Gourmand sur Facebook"></a>
+            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank"><img src="icon-instagram.png" alt="Suivez Au Chalet Gourmand sur Instagram"></a>
+        </div>
+    </div>
 
     <footer>
         <p>© 2026 Au Chalet Gourmand. <span data-i18n="footer-rights">Tous droits réservés.</span><br><br><span data-i18n="footer-creation">Création web :</span> <a href="https://cotentinwebstudio.fr/index.html" target="_blank" style="color: var(--rouge-chalet); text-decoration: none; font-weight: bold;">Cotentin Web Studio</a></p>
