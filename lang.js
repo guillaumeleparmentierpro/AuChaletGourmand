@@ -118,7 +118,7 @@ const translations = {
         'info-pay': '💳 Moyens de paiement :',
         'pay-card': 'Carte Bancaire (Boutique & Distributeur)',
         'pay-cash': 'Espèces (Boutique uniquement)',
-        'pay-ticket': 'Cartes & Tickets Restaurant (Boutique uniquement)',
+        'pay-ticket': 'Cartes & Tickets Restaurant / American Express (Boutique uniquement)',
 
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
@@ -270,7 +270,7 @@ const translations = {
         'info-pay': '💳 Payment Methods:',
         'pay-card': 'Credit Card (Shop & Vending Machine)',
         'pay-cash': 'Cash (Shop only)',
-        'pay-ticket': 'Cards & Restaurant Vouchers (Shop only)',
+        'pay-ticket': 'American Express (Shop only)',
 
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
