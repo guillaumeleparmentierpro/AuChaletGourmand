@@ -31,12 +31,12 @@ const menuDuJour = {
         },
         { 
             nom: "Les Fiertés de la Mer", 
-            desc: "1 demi araignée (ou 2 pinces de tourteau), 6 huîtres, 2 langoustines, 6 crevettes roses, 12 bulots, Bigornaux, crevettes grises, (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots", 
+            desc: "1 demi araignée (ou 2 pinces de tourteau), 6 huîtres, 2 langoustines, 6 crevettes roses, 12 bulots, Bigornaux, crevettes grises, (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots)", 
             prix: "36.90 €/pers." 
         },
         { 
             nom: "Royal de l'Océan", 
-            desc: "1/2 homard, 2 langoustines, 6 huîtres, 6 crevettes, 12 bulots, Bigornaux, crevettes grises, (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots", 
+            desc: "1/2 homard, 2 langoustines, 6 huîtres, 6 crevettes, 12 bulots, Bigornaux, crevettes grises, (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots)", 
             prix: "56.90 €/pers." 
            
         }
