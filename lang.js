@@ -248,7 +248,7 @@ const translations = {
         'market-prod-1': 'Fish, fruits & vegetables',
         'market-time-1': 'Wednesday',
         'market-prod-2': 'Fruits & légumes',
-        'market-prod-3': 'Poisson',       
+        'market-prod-3': 'Fish',       
         'market-time-2': 'Thursday',
         'market-time-3': 'Friday',
         'market-time-4': 'Saturday',
