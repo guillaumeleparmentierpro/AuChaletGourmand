@@ -91,33 +91,7 @@
             border-bottom: 2px solid var(--rouge-chalet);
             padding-bottom: 3px;
         }
-        /* --- SOCIAL & FOOTER --- */
-        .social-banner {
-            background-color: var(--gris-clair);
-            padding: 25px 20px;
-            text-align: center;
-        }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-        }
-
-        footer {
-            background-color: var(--gris-anthracite);
-            color: white;
-            text-align: center;
-            padding: 25px 20px;
-            font-size: 13px;
-            border-top: 4px solid var(--rouge-chalet);
-        }
         /* --- CONTENU --- */
         .content-padding {
             padding: 40px 20px 80px;
@@ -200,7 +174,7 @@
             margin-top: 5px;
         }
 
-        /* --- APPEL À L'ACTION (STYLE CALL & COLLECT) --- */
+        /* --- APPEL À L'ACTION --- */
         .cta-commande {
             background-color: var(--gris-clair);
             padding: 30px 20px;
@@ -228,6 +202,34 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--gris-anthracite);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 13px;
+            border-top: 4px solid var(--rouge-chalet);
+        }
+
+        .social-banner {
+            background-color: var(--gris-clair);
+            padding: 25px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
@@ -252,11 +254,15 @@
         <div class="menu-card reveal">
             <p class="menu-date" id="affichage-date"></p>
             
-            <h2 class="menu-section-title" data-i18n="menu-starters">Les Entrées</h2>
-            <div id="conteneur-entrees"></div>
-                        
-            <h2 class="menu-section-title" data-i18n="menu-mains">Les Plats Préparés</h2>
-            <div id="conteneur-plats"></div>
+            <div id="section-entrees" style="display: none;">
+                <h2 class="menu-section-title" data-i18n="menu-starters">Les Entrées</h2>
+                <div id="conteneur-entrees"></div>
+            </div>
+            
+            <div id="section-plats" style="display: none;">
+                <h2 class="menu-section-title" data-i18n="menu-mains">Les Plats Préparés</h2>
+                <div id="conteneur-plats"></div>
+            </div>
 
             <div class="cta-commande">
                 <a href="tel:0233046140" class="btn-call">
@@ -266,12 +272,12 @@
             </div>
         </div>
     </main>
-    
+
     <div class="social-banner">
         <p data-i18n="social-follow">Suivez-nous sur nos réseaux</p>
         <div class="social-icons">
-            <a href="https://www.facebook.com/auchaletgourmand50/" target="_blank"><img src="icon-facebook.png" alt="Rejoignez Au Chalet Gourmand sur Facebook"></a>
-            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank"><img src="icon-instagram.png" alt="Suivez Au Chalet Gourmand sur Instagram"></a>
+            <a href="https://www.facebook.com/auchaletgourmand50/" target="_blank"><img src="icon-facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/auchaletgourmand_terreetmer/" target="_blank"><img src="icon-instagram.png" alt="Instagram"></a>
         </div>
     </div>
 
@@ -283,44 +289,51 @@
     <script src="lang.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- GÉNÉRATION DYNAMIQUE DU MENU ---
             if (typeof menuDuJour !== 'undefined') {
-                // 1. Afficher la date
                 document.getElementById('affichage-date').innerText = menuDuJour.date;
 
-                // 2. Générer les entrées
+                // --- GESTION DES ENTRÉES ---
                 const conteneurEntrees = document.getElementById('conteneur-entrees');
-                menuDuJour.entrees.forEach(entree => {
-                    conteneurEntrees.innerHTML += `
-                        <div class="menu-item">
-                            <div class="menu-item-name">${entree.nom}</div>
-                            <div class="menu-item-desc">${entree.desc}</div>
-                            <div class="menu-item-price">${entree.prix}</div>
-                        </div>
-                    `;
-                });
+                const sectionEntrees = document.getElementById('section-entrees');
+                let aDesEntrees = false;
 
-                // 3. Générer les plats
-                const conteneurPlats = document.getElementById('conteneur-plats');
-                menuDuJour.plats.forEach(plat => {
-                    conteneurPlats.innerHTML += `
-                        <div class="menu-item">
-                            <div class="menu-item-name">${plat.nom}</div>
-                            <div class="menu-item-desc">${plat.desc}</div>
-                            <div class="menu-item-price">${plat.prix}</div>
-                        </div>
-                    `;
+                menuDuJour.entrees.forEach(entree => {
+                    if (entree.nom.trim() !== "") {
+                        aDesEntrees = true;
+                        conteneurEntrees.innerHTML += `
+                            <div class="menu-item">
+                                <div class="menu-item-name">${entree.nom}</div>
+                                <div class="menu-item-desc">${entree.desc}</div>
+                                <div class="menu-item-price">${entree.prix}</div>
+                            </div>
+                        `;
+                    }
                 });
+                if (aDesEntrees) sectionEntrees.style.display = 'block';
+
+                // --- GESTION DES PLATS ---
+                const conteneurPlats = document.getElementById('conteneur-plats');
+                const sectionPlats = document.getElementById('section-plats');
+                let aDesPlats = false;
+
+                menuDuJour.plats.forEach(plat => {
+                    if (plat.nom.trim() !== "") {
+                        aDesPlats = true;
+                        conteneurPlats.innerHTML += `
+                            <div class="menu-item">
+                                <div class="menu-item-name">${plat.nom}</div>
+                                <div class="menu-item-desc">${plat.desc}</div>
+                                <div class="menu-item-price">${plat.prix}</div>
+                            </div>
+                        `;
+                    }
+                });
+                if (aDesPlats) sectionPlats.style.display = 'block';
             }
 
-            // --- ANIMATION AU DÉFILEMENT (REVEAL) ---
+            // --- ANIMATION REVEAL ---
             const reveals = document.querySelectorAll('.reveal');
-            
-            const revealOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            };
-
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -329,10 +342,7 @@
                     }
                 });
             }, revealOptions);
-
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
-            });
+            reveals.forEach(reveal => revealOnScroll.observe(reveal));
         });
     </script>
 </body>
