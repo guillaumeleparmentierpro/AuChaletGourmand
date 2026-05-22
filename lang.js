@@ -247,7 +247,7 @@ const translations = {
         'mod-market-intro': 'Find our fruits, vegetables, and fresh products every week at local markets:',
         'market-prod-1': 'Fish, fruits & vegetables',
         'market-time-1': 'Wednesday',
-        'market-prod-2': 'Fruits & légumes',
+        'market-prod-2': 'Fruits & vegetables',
         'market-prod-3': 'Fish',       
         'market-time-2': 'Thursday',
         'market-time-3': 'Friday',
