@@ -8,11 +8,11 @@ const translations = {
         // Nouveauté
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
-        'cc-subtitle': 'Sécurisez vos commandes fraîches et retirez-les 24h/24 !',
+        'cc-subtitle': 'Appeler pour réserver vos commandes et retirez-les en boutique !',
         'cc-how': 'Comment ça marche ?',
         'step-1-title': '1. Je choisis',
         'step-1-desc': 'Sélectionnez un de nos packs exclusifs détaillés ci-dessous.',
-        'step-2-title': '2. Je réserve & je paie',
+        'step-2-title': '2. Je réserve',
         'step-2-desc': 'Appelez-nous pour vérifier nos stocks du jour puis pour valider votre réservation.',
         'step-3-title': '3. Je retire en boutique',
         'step-3-desc': 'Récupérez votre commande fraîchement préparée durant les horaires d\'ouverture de la boutique !',
@@ -122,11 +122,9 @@ const translations = {
 
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
-        'cc-subtitle': 'Sécurisez vos commandes fraîches et retirez-les 24h/24 !',
         'cc-how': 'Comment ça marche ?',
         'step-1-title': '1. Je choisis',
         'step-1-desc': 'Sélectionnez un de nos packs exclusifs détaillés ci-dessous.',
-        'step-2-title': '2. Je réserve & je paie',
         'cc-packs-our': 'Nos Packs',
         'cc-packs-exclusive': 'Exclusifs',
         'pack-apero-title': 'Pack "Apéro Plage" - 35 €',
@@ -162,11 +160,11 @@ const translations = {
         // Nouveauté
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
-        'cc-subtitle': 'Secure your fresh orders and pick them up 24/7!',
+        'cc-subtitle': 'Call to reserve your orders and pick them up in store!',
         'cc-how': 'How does it work?',
         'step-1-title': '1. I Choose',
         'step-1-desc': 'Select one of our exclusive packs detailed below.',
-        'step-2-title': '2. I Book & Pay',
+        'step-2-title': '2. I Book',
         'step-2-desc': 'Call us to check our daily stock and confirm your reservation.',
         'step-3-title': '3. Shop Pickup',
         'step-3-desc': 'Collect your freshly prepared order during the shop\'s opening hours!',
@@ -276,11 +274,10 @@ const translations = {
 
         // Page : Call & Collect
         'cc-title': 'Call & Collect',
-        'cc-subtitle': 'Secure your fresh orders and pick them up 24/7!',
         'cc-how': 'How to do ?',
         'step-1-title': '1. I Choose',
         'step-1-desc': 'Select one of our exclusive packs detailed below.',
-        'step-2-title': '2. I Book & Pay',
+
 
         'cc-packs-our': 'Our Exclusive',
         'cc-packs-exclusive': 'Packs',
