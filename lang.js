@@ -6,6 +6,44 @@
 const translations = {
     'fr': {
         // Nouveauté
+        // Page : Call & Collect
+        'cc-title': 'Call & Collect',
+        'cc-subtitle': 'Sécurisez vos commandes fraîches et retirez-les 24h/24 !',
+        'cc-how': 'Comment ça marche ?',
+        'step-1-title': '1. Je choisis',
+        'step-1-desc': 'Sélectionnez un de nos packs exclusifs détaillés ci-dessous.',
+        'step-2-title': '2. Je réserve & je paie',
+        'step-2-desc': 'Appelez-nous pour vérifier nos stocks du jour puis pour valider votre réservation.',
+        'step-3-title': '3. Je retire en boutique',
+        'step-3-desc': 'Récupérez votre commande fraîchement préparée durant les horaires d\'ouverture de la boutique !',
+        'cc-packs-our': 'Nos Packs',
+        'cc-packs-exclusive': 'Exclusifs',
+        
+        // Pack A (Mer)
+        'pack-aperoA-title': 'Pack "Apéro fruits de mer" 25 € (2/3 pers.)',
+        'pack-aperoA-1': '12 huîtres',
+        'pack-aperoA-2': '500 g de bulots',
+        'pack-aperoA-3': '300 g de crevettes roses',
+        'pack-aperoA-4': '1 coupelle de crevettes grises',
+        'pack-aperoA-5': '(Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots)',
+
+        // Pack B (Terre)
+        'pack-aperoB-title': 'Pack "Apéro charcut’ fromage" 25 € (2/3 pers.)',
+        'pack-aperoB-1': 'Morbier, emmental, camembert, tomme aux fleurs',
+        'pack-aperoB-2': 'Jambon blanc, jambon fumé, rosette et saucisson à l\'ail',
+
+        // Pack Gîte
+        'pack-gite-title': 'Pack "Au Gîte" - 40 € (2 pers.)',
+        'pack-gite-1': '1 baguette',
+        'pack-gite-2': '1 terrine du Val de Sée',
+        'pack-gite-3': '1 terrine saveur granvillaise',
+        'pack-gite-4': '1 soupe de poisson avec croûtons et rouille',
+        'pack-gite-5': '1 teurgoule',
+        'pack-gite-6': '1 bouteille de cidre',
+
+        'cta-title': 'Pour vérifier les disponibilités du jour',
+        'cta-desc': 'Appelez-nous directement ! Nous vous conseillerons sur les meilleurs arrivages pour vos plateaux.',
+        'cta-btn': 'Réserver au 02 33 04 61 40',
         'menu-title-our': 'Notre',
         'menu-title-daily': 'Menu du jour',
         'menu-starters': 'Les Entrées',
@@ -125,6 +163,44 @@ const translations = {
     },
     'en': {
         // Nouveauté
+        // Page : Call & Collect
+        'cc-title': 'Call & Collect',
+        'cc-subtitle': 'Secure your fresh orders and pick them up 24/7!',
+        'cc-how': 'How does it work?',
+        'step-1-title': '1. I Choose',
+        'step-1-desc': 'Select one of our exclusive packs detailed below.',
+        'step-2-title': '2. I Book & Pay',
+        'step-2-desc': 'Call us to check our daily stock and confirm your reservation.',
+        'step-3-title': '3. Shop Pickup',
+        'step-3-desc': 'Collect your freshly prepared order during the shop\'s opening hours!',
+        'cc-packs-our': 'Our Exclusive',
+        'cc-packs-exclusive': 'Packs',
+
+        // Pack A (Seafood)
+        'pack-aperoA-title': '"Seafood Appie" Pack - €25 (2/3 pers.)',
+        'pack-aperoA-1': '12 oysters',
+        'pack-aperoA-2': '500g whelks',
+        'pack-aperoA-3': '300g king prawns',
+        'pack-aperoA-4': '1 bowl of grey shrimps',
+        'pack-aperoA-5': 'Lemon mayo and finger wipes included',
+
+        // Pack B (Meat & Cheese)
+        'pack-aperoB-title': '"Meat & Cheese" Pack - €25 (2/3 pers.)',
+        'pack-aperoB-1': 'Morbier, Emmental, Camembert, Flower-crust Tomme',
+        'pack-aperoB-2': 'White ham, smoked ham, rosette and garlic sausage',
+
+        // Pack Gîte
+        'pack-gite-title': '"At the Cottage" Pack - €40 (2 pers.)',
+        'pack-gite-1': '1 baguette',
+        'pack-gite-2': '1 "Val de Sée" meat terrine',
+        'pack-gite-3': '1 "Granville style" fish terrine',
+        'pack-gite-4': '1 fish soup with croutons and rouille sauce',
+        'pack-gite-5': '1 "Teurgoule" (local rice pudding)',
+        'pack-gite-6': '1 bottle of cider',
+
+        'cta-title': 'To check today\'s availability',
+        'cta-desc': 'Call us directly! We will advise you on the best arrivals for your platters.',
+        'cta-btn': 'Book at +33 2 33 04 61 40',
         'mod-vending-title': 'Self-Service Vending Machine',
         'mod-vending-note': 'Accessible 24/7 right outside the shop!',
         'menu-title-our': 'Our',
