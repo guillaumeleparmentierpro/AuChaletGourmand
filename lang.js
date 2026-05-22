@@ -9,7 +9,7 @@ const translations = {
         'menu-title-our': 'Notre',
         'menu-title-daily': 'Menu du jour',
         'menu-starters': 'Les Entrées',
-        'menu-mains': 'Les Plats Préparés',
+        'menu-mains': 'Les Plateaux Préparés',
         'mod-vending-title': 'Distributeur libre-service',
         'mod-vending-note': 'Accessible 24h/24 et 7j/7 devant la boutique !',
         
@@ -130,7 +130,7 @@ const translations = {
         'menu-title-our': 'Our',
         'menu-title-daily': 'Daily Menu',
         'menu-starters': 'Starters',
-        'menu-mains': 'Prepared Meals',
+        'menu-mains': 'Prepared Platters',
         
         // Navigation
         'nav-home': 'Home',
