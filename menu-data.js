@@ -7,32 +7,32 @@ const menuDuJour = {
     
     entrees: [
         { 
-            nom: "Soupe de Poissons Maison", 
-            desc: "Accompagnée de sa rouille, emmental râpé et de croûtons", 
-            prix: "8.50 €" 
+            nom: "", 
+            desc: "", 
+            prix: "" 
         },
         { 
-            nom: "test", 
-            desc: "au test", 
-            prix: "5.50 €" 
+            nom: "", 
+            desc: "", 
+            prix: "" 
         },
         { 
-            nom: "Rillettes aux deux Saumons", 
-            desc: "Recette artisanale d'Anne-Laure", 
-            prix: "7.00 €" 
+            nom: "", 
+            desc: "", 
+            prix: "" 
         }
     ],
     
     plats: [
         { 
-            nom: "Choucroute de la Mer", 
-            desc: "Chou au vin blanc, saumon, cabillaud, haddock fumé et crevettes", 
-            prix: "18.50 €" 
+            nom: "Royal de l'Océan", 
+            desc: "1/2 homard, 2 langoustines, 6 huîtres, 6 crevettes, 12 bulots, Bigornaux, crevettes grises", 
+            prix: "56.90 €/personne (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots" 
         },
         { 
-            nom: "Bouchée à la Reine aux Fruits de Mer", 
-            desc: "Saint-Jacques, crevettes et moules dans un feuilleté pur beurre", 
-            prix: "14.00 €" 
+            nom: "Les Fiertés de la Mer", 
+            desc: "1 demie araignée (ou 2 pinces de tourteau), 6 huîtres, 2 langoustines, 6 crevettes roses, 12 bulots, Bigornaux, crevettes grises", 
+            prix: "36.90 €/personne (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots" 
         }
     ]
 };
