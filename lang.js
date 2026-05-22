@@ -114,6 +114,7 @@ const translations = {
         'vending-item-1': 'Huîtres fraîches de producteurs locaux',
         'vending-item-2': 'Plats préparés et terrines',
         'vending-item-3': 'Sélection de fromages et produits du terroir',
+        'vending-item-4': 'Crustacés cuits',
 
         // Paiements
         'info-pay': '💳 Moyens de paiement :',
@@ -257,6 +258,7 @@ const translations = {
         'vending-item-1': 'Fresh oysters from local producers',
         'vending-item-2': 'Prepared dishes and terrines',
         'vending-item-3': 'Selection of cheeses and local products',
+        'vending-item-4': 'Cooked shellfish',
 
         // Paiements
         'info-pay': '💳 Payment Methods:',
