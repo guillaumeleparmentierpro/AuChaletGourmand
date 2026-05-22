@@ -27,7 +27,7 @@ const menuDuJour = {
         { 
             nom: "Coquillages de l'écailler", 
             desc: "1 demie araignée (ou 2 pinces de tourteau), 6 huîtres, 6 crevettes roses, 12 bulots, Bigornaux, (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots)", 
-            prix: "26.90 €/personne (Offert : Citron, Mayonnaise, Rince doigts, Pic à bulots)" 
+            prix: "26.90 €/pers." 
         },
         { 
             nom: "Les Fiertés de la Mer", 
