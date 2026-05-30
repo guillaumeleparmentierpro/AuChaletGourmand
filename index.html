@@ -25,6 +25,19 @@
 </script>
     
     <style>
+        .horaires-liste li[data-day].today {
+    background-color: #fff0f0;
+    border-radius: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.horaires-liste li[data-day].today > span:first-child {
+    color: #a32d2d;
+    font-weight: 700;
+}
+.horaires-liste li[data-day].today > span:last-child {
+    color: #a32d2d;
+}
         /* --- VARIABLES DE COULEURS --- */
         :root {
             --gris-anthracite: #2a2a2a;
@@ -604,13 +617,13 @@
                 </p>
                 
                 <ul class="horaires-liste" style="margin-bottom: 20px;">
-                    <li><span data-i18n="day-1">Lundi</span> <span>08:00 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span data-i18n="day-2">Mardi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span data-i18n="day-3">Mercredi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span data-i18n="day-4">Jeudi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
-                    <li><span data-i18n="day-5">Vendredi</span> <span>08:30 – 13:00 | 14:30 – 19:30</span></li>
-                    <li><span data-i18n="day-6">Samedi</span> <span>08:30 – 13:00 | 14:00 – 19:30</span></li>
-                    <li><span data-i18n="day-7">Dimanche</span> <span>08:30 – 13:00</span></li>
+<li data-day="1"><span data-i18n="day-1">Lundi</span>    <span>08:00 – 12:30 | 14:30 – 19:30</span></li>
+<li data-day="2"><span data-i18n="day-2">Mardi</span>    <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
+<li data-day="3"><span data-i18n="day-3">Mercredi</span> <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
+<li data-day="4"><span data-i18n="day-4">Jeudi</span>    <span>08:30 – 12:30 | 14:30 – 19:30</span></li>
+<li data-day="5"><span data-i18n="day-5">Vendredi</span> <span>08:30 – 13:00 | 14:30 – 19:30</span></li>
+<li data-day="6"><span data-i18n="day-6">Samedi</span>   <span>08:30 – 13:00 | 14:00 – 19:30</span></li>
+<li data-day="0"><span data-i18n="day-7">Dimanche</span> <span>08:30 – 13:00</span></li>
                 </ul>
 
 <a href="https://www.google.com/maps/dir//Au+Chalet+Gourmand+23+Rte+du+Pont+Rose+50270+Barneville-Carteret" target="_blank" class="btn-contact">
@@ -787,6 +800,13 @@
                 revealOnScroll.observe(reveal);
             });
         });
+        // Surlignage du jour actuel dans les horaires
+const jourActuel = new Date().getDay();
+document.querySelectorAll('.horaires-liste li[data-day]').forEach(li => {
+    if (parseInt(li.dataset.day) === jourActuel) {
+        li.classList.add('today');
+    }
+});
     </script>
 </body>
 </html>
