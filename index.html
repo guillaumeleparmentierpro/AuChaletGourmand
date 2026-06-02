@@ -516,6 +516,11 @@
             .lien-carte { width: calc(50% - 20px); }
             .contact-container { flex-direction: row; align-items: stretch; }
         }
+        @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.ticker-track:hover { animation-play-state: paused; }
     </style>
 </head>
 <body>
