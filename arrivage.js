@@ -1,3 +1,3 @@
 // Il suffit de changer le texte entre les guillemets !
 // Pour cacher le bandeau, laissez simplement les guillemets vides : ""
-const texteArrivage = "20 mai 2026 - Saumon de Cherbourg à seulement 19,90€/kg";
+const texteArrivage = "30 mai 2026 - Pommes de terre de Sutainville à seulement 12€ les 5kgs";
